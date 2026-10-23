@@ -1,1 +1,2 @@
-print("Hello world, from client!")
+local BuildController = require(script.BuildController)
+BuildController.start()

@@ -1,1 +1,2 @@
-print("Hello world, from server!")
+local BuildServer = require(script.BuildServer)
+BuildServer.start()
