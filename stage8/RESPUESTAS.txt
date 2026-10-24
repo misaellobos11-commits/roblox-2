@@ -1,0 +1,17 @@
+MI PRUEBA DE MATTERLOOM 8.5
+Dispositivo (PC / móvil o emulador):
+A — Logística: bien / falla / confuso. Detalle:
+B — Selección: bien / falla / confuso. Detalle:
+C — Mis curvas: bien / falla / confuso. Detalle:
+D — Producción: bien / falla / confuso. Detalle:
+E — Mega fábrica (opcional):
+Lo que más me gustó:
+Lo que cambiaría primero:
+
+Para un fallo concreto:
+1. Estaba en la demo o línea:
+2. Hice esto:
+3. Esperaba esto:
+4. Ocurrió esto:
+5. Se repite siempre o solo a veces:
+6. Primer error rojo de Output, si aparece:

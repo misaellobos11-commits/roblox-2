@@ -1,0 +1,89 @@
+MATTERLOOM 8.5 — PRUEBA DE CONEXIONES Y SELECCIÓN
+Tiempo orientativo: 10–15 minutos. Tu opinión importa tanto como los fallos.
+
+CÓMO ABRIR
+Descomprime el ZIP. Abre Matterloom_8_5_Prueba_Conexiones.rbxlx en Roblox Studio.
+Pulsa Play (no Run), elige una parcela y comprueba el título «MATTERLOOM · 8.5 TEST».
+Prueba esta copia; conserva tu archivo 8.4. Aún no se guarda el progreso al salir.
+
+QUÉ CAMBIÓ
+Se unificó la dirección lógica con las flechas, el arrastre y las demos.
+Los modelos importados tienen un volumen invisible para poder seleccionarlos
+con clic o toque, incluido el cuerpo alto de las máquinas. Las previsualizaciones
+no interceptan esos clics. Se conserva tu mapa, tus modelos, economía y recetas.
+
+PRUEBA A — DEMO LOGÍSTICA (2 minutos)
+1. En una parcela vacía, pulsa «Demo logística».
+2. Mira dónde sale la materia del receptor y cómo llega a las cintas.
+3. Observa una recta, una curva, un divisor y los ascensores.
+4. Comprueba si las ventas y los créditos aumentan.
+Esperado: los productos avanzan en el sentido de las flechas y llegan a venderse.
+Cuéntame: ¿dónde se detiene algo?, ¿alguna flecha confunde?, ¿la curva se ve bien
+unida o hay huecos, superposiciones o saltos del paquete?
+
+PRUEBA B — SELECCIONAR Y EDITAR (2 minutos)
+1. Haz clic en terreno vacío para quitar la selección.
+2. Selecciona un receptor, un procesador, una cinta recta y una curva.
+3. Haz clic tanto en la base como en el cuerpo alto del procesador.
+4. Prueba «Mover», luego cancela. Comprueba que conserva su lugar.
+5. Retira una cinta y coloca otra para reconectar la línea.
+6. Prueba selección múltiple: las piezas elegidas deben quedar marcadas.
+Esperado: seleccionas la máquina que apuntas y puedes editarla.
+Cuéntame: ¿hay zonas donde el clic no responde o selecciona otra cosa?
+Nota: mover efectivamente una máquina todavía reinicia su contenido; este comportamiento
+heredado está pendiente de una revisión posterior. No confundas cancelar con mover.
+
+PRUEBA C — CURVAS QUE TÚ CONSTRUYAS (3 minutos)
+1. Empieza otra sesión con Stop y Play para recuperar una parcela vacía.
+2. Usa Demo logística para tener receptores y materiales disponibles.
+3. Modifica una de sus líneas: retira algunos tramos y dibuja una L con el arrastre.
+4. Conecta esa L a la salida de un receptor. Usa R para elegir la orientación.
+5. Prueba una curva hacia la derecha y otra hacia la izquierda.
+6. Dibuja también una recta arrastrando en ambos sentidos.
+Esperado: R determina la orientación inicial; los giros mantienen la continuidad.
+Cuéntame si esto se siente natural. Si prefieres que siempre mande la dirección
+del arrastre, dímelo: es una decisión de controles, no necesariamente un fallo.
+Si no conecta, selecciona las piezas y observa el diagnóstico de conexiones.
+
+PRUEBA D — PRODUCCIÓN (2 minutos)
+Empieza otra sesión vacía y pulsa «Demo producción». Espera hasta dos minutos.
+Esperado: producción y venta de compuesto de carbono, cristal básico, mezcla
+conductiva y lingotes. Mira especialmente las máquinas con dos ingredientes.
+Cuéntame cuál línea funciona y cuál no. Puedes describir su posición en la parcela.
+
+PRUEBA E — MEGA FÁBRICA (opcional, 2 minutos)
+En una sesión nueva, pulsa «Mega fábrica». Espera a que termine de colocarse.
+Observa ventas, fluidez y si algún circuito queda parado. No necesitas medir FPS:
+basta decir si notas tirones, retrasos al clicar o dificultad para ver las flechas.
+
+TU OPINIÓN
+- ¿Se entiende por dónde entra y sale cada material?
+- ¿Qué parte te resulta incómoda o lenta?
+- ¿Qué aspecto visual cambiarías primero?
+- ¿Qué esperabas que ocurriera cuando algo no hizo lo que querías?
+
+RESPONDE CON ESTE FORMATO (puedes copiar RESPUESTAS.txt)
+Dispositivo:
+A — Logística: bien / falla / confuso. Detalle:
+B — Selección: bien / falla / confuso. Detalle:
+C — Mis curvas: bien / falla / confuso. Detalle:
+D — Producción: bien / falla / confuso. Detalle:
+E — Mega fábrica, si la probaste:
+Lo que más me gustó:
+Lo que cambiaría primero:
+
+Si hay un fallo, una captura o un vídeo corto mostrando el antes y el después
+ayuda. Si aparece texto rojo en Output de Studio, copia el primer error.
+
+LÍMITES DE ESTA VERSIÓN
+Todavía no incluye guardado, corrección del rendimiento según orden de colocación,
+reinicio de temporizadores al mover, recuperación de órdenes muy rápidas ni mejoras
+de controles móviles/filtros. Si aparece «Espera…» y no se recupera, anota qué hiciste
+y reinicia Play. Son problemas conocidos que no deben ocultar esta prueba acotada.
+
+VERIFICADO AQUÍ
+Los 14 scripts activos compilan. Pruebas de lógica: direcciones en cuatro rotaciones,
+20 recorridos por arrastre y producción/venta en las tres demos durante 120 segundos
+simulados. Contrato de selección comprobado con adaptadores de renderizado para
+24 tipos × vista previa/colocada. Esas pruebas no sustituyen la ejecución real de
+Roblox Studio, que corresponde al recorrido de esta guía.
