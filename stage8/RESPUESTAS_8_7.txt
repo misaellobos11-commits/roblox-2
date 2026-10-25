@@ -1,0 +1,21 @@
+PRUEBA MATTERLOOM 8.7
+¿La cabecera dice 8.7 MÁQUINAS?:
+
+Receptor: bien / invertido / salida en otro lado
+Procesadores: bien / falla (nombre):
+Almacén y venta: bien / falla:
+Divisores izquierdo, derecho y triple: bien / falla:
+Desbordes izquierdo y derecho: bien / falla:
+Filtros izquierdo y derecho: bien / falla:
+Ascensor de subida: bien / falla:
+Ascensor de bajada: bien / falla:
+¿Las bocas de los ascensores coinciden con la altura de las cintas?:
+¿Las cintas siguen funcionando como en 8.6?:
+
+Pieza exacta que falla:
+¿Recién colocada, girada con R o movida?:
+Esperaba que entrara/saliera por:
+Realmente entra/sale por:
+¿La flecha está invertida, o la boca está en otro lado?:
+¿Hay alguna pieza que estaba bien y ahora quedó invertida?:
+Primer error rojo de Output, si aparece:

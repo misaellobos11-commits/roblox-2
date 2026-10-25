@@ -11,6 +11,8 @@ allowed={
 }
 if '--86' in sys.argv:
     allowed.add('/StarterPlayer/StarterPlayerScripts/Client/BuildController')
+if '--87-delta' in sys.argv:
+    allowed.remove('/ReplicatedStorage/Shared/MachineCatalog')
 def compare(a,b,path=''):
     assert a.tag==b.tag and a.attrib==b.attrib,(path,a.tag,b.tag)
     if a.tag=='Item': path+='/'+a.findtext("Properties/string[@name='Name']",'')

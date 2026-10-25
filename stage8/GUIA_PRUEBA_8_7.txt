@@ -1,0 +1,61 @@
+MATTERLOOM 8.7 — ORIENTACIÓN DE MÁQUINAS
+
+Abre Matterloom_8_7_Orientacion_Maquinas.rbxlx en Studio y pulsa Play.
+Comprueba que la cabecera diga «8.7 MÁQUINAS».
+Conserva tu archivo 8.6: las cintas y el arrastre de esa versión se mantienen.
+
+QUÉ SE AJUSTÓ
+La orientación visual de divisores, desbordes, filtros, ascensores, receptor,
+procesadores, almacén y terminal de venta. Se conservan sus modelos y materiales.
+Las variantes izquierda/derecha también se compensan al girar las mallas.
+No se cambian las recetas, precios, conexiones lógicas ni la dirección del flujo.
+
+PRUEBA 1 — RECEPTOR Y MÁQUINAS
+Carga Demo logística y sigue la materia al salir del receptor.
+Debe salir por la boca de salida del modelo, coincidiendo con la cinta conectada
+y la marca cian, sin atravesar el panel trasero.
+Mira después el procesador, almacén y terminal de venta.
+La marca naranja representa entrada; la cian representa salida.
+El receptor no necesita entrada y la terminal de venta no tiene salida.
+
+PRUEBA 2 — DIVISORES, DESBORDES Y FILTROS
+Sigue las rutas de Demo logística y, opcionalmente, Mega fábrica.
+Comprueba tanto la salida frontal como la lateral dibujada en cada pieza.
+- Divisor izquierdo/derecho: prioriza su lateral; usa frente si está bloqueado.
+- Desborde izquierdo/derecho: prioriza frente; usa su lateral si está bloqueado.
+- Filtro izquierdo/derecho: el material configurado sale por su lateral;
+  los otros materiales salen por delante. F cambia la selección del filtro.
+- Divisor triple: distribuye entre izquierda, frente y derecha disponibles.
+Resultado importante: ¿la salida lateral dibujada es la que realmente utiliza?
+La animación del cubo sobre distribuidores aún es simplificada: para comprobar
+la ruta real, observa en qué cinta vecina aparece después de salir del distribuidor.
+
+PRUEBA 3 — ASCENSORES
+Repite el tramo de tu captura: ascensor de subida, cintas elevadas, ascensor de bajada.
+- Subida: entrada baja por detrás; salida alta por delante.
+- Bajada: entrada alta por detrás; salida baja por delante.
+Las flechas horizontales deben continuar el sentido de las cintas vecinas.
+Las flechas verticales deben indicar subir/bajar, respectivamente.
+Comprueba si las bocas quedan a la misma altura visual que las cintas.
+
+PRUEBA 4 — PRODUCCIÓN Y GIROS
+En una nueva sesión Play carga Demo producción y revisa las otras máquinas.
+Fusión y sintetizador tienen dos entradas laterales y una salida frontal.
+Prueba R en un receptor, un filtro y un ascensor al colocarlos en un espacio libre:
+modelo, boca y flechas deben girar juntos en las cuatro orientaciones.
+
+QUÉ ENVIARME
+Nombre exacto de la pieza que sigue mal, captura con sus cintas conectadas y:
+«Esperaba que entrara/saliera por ____, pero lo hace por ____».
+Indica si ocurre siempre o solo después de girar/mover la pieza.
+También dime si alguna máquina que estaba bien ahora quedó invertida.
+
+LÍMITES DE ESTA PRUEBA
+Se verificaron matemáticamente el montaje y las cuatro rotaciones de los 23
+tipos importados, además de lógica, demos, cintas, selección y compilación.
+La calibración parte de las capturas recibidas; las bocas y flechas están dentro
+de mallas externas que no pueden inspeccionarse aquí. Por eso la orientación
+visual final de cada modelo y sus alturas siguen pendientes de esta prueba en Studio.
+No se ejecutó el motor Roblox en el entorno de desarrollo.
+Siguen pendientes el guardado y las incidencias ajenas a orientación documentadas
+en la versión 8.6. Si se bloquea la interfaz, detén Play y vuelve a iniciarlo.

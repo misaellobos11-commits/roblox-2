@@ -1,5 +1,37 @@
 # Matterloom — pruebas de conexiones y cintas
 
+## 8.7: orientación de modelos importados
+
+Ejecutar `bash stage8/check_87.sh`. Genera
+`build/Matterloom_8_7_Orientacion_Maquinas.rbxlx` sobre la versión 8.6.
+Guía: `GUIA_PRUEBA_8_7.txt`. ZIP: `downloads/Matterloom_8_7_Maquinas.zip`.
+
+El usuario confirmó que las cintas 8.6 funcionan; reportó inversión visual en
+divisores, filtros, ascensores y el receptor. El instalador normalizaba todas las
+mallas con `PivotTo(CFrame.identity)`, descartando la orientación del template
+(los 26 templates del archivo tienen yaw 180° y un atributo de corrección previo).
+Las conexiones y las bocas dibujadas en la malla usan convenciones independientes.
+
+Se aplica una calibración visual explícita de 180° a los 23 tipos importados
+restantes, antes de centrar, escalar y colocar en el wrapper. Las familias laterales
+usan el modelo espejo para conservar el lado de salida después del giro.
+La simulación, catálogo, controlador, cintas procedurales y sus rutas no cambian.
+Tampoco se cambian los templates ni las copias de seguridad del archivo.
+
+Los tests ejecutan el instalador real con composición de traslación/rotación y
+92 casos de tipo/orientación, más fallback y preservación de cintas. Los casos
+de calibración fallan en 8.6 y pasan en 8.7. La comparación XML permite exactamente
+dos fuentes distintas de 8.6 (MachineVisual y BuildUI); las demos mantienen ventas
+317/128/427 en 120 segundos simulados.
+
+Límite importante: las convenciones nativas (-Z frontal, lados -X/+X) son fixtures
+de calibración basados en las capturas, no datos extraídos de vértices/texturas.
+El entorno no accede a esas mallas externas ni ejecuta Studio. Los tests validan
+las transformaciones bajo ese contrato; la guía pide confirmar cada familia,
+los lados y alturas en Studio. No se afirma haber inspeccionado visualmente las
+23 mallas. La animación sobre distribuidores sigue siendo simplificada y no se
+confunde con la ruta efectiva elegida por la simulación.
+
 ## 8.6: sentido visual y arrastre
 
 Ejecutar `bash stage8/check_86.sh`. Genera `build/Matterloom_8_6_Cintas.rbxlx`
