@@ -9,6 +9,8 @@ allowed={
  '/ReplicatedStorage/Shared/MachineVisual',
  '/StarterPlayer/StarterPlayerScripts/Client/BuildUI',
 }
+if '--86' in sys.argv:
+    allowed.add('/StarterPlayer/StarterPlayerScripts/Client/BuildController')
 def compare(a,b,path=''):
     assert a.tag==b.tag and a.attrib==b.attrib,(path,a.tag,b.tag)
     if a.tag=='Item': path+='/'+a.findtext("Properties/string[@name='Name']",'')
@@ -18,5 +20,5 @@ def compare(a,b,path=''):
     assert len(a)==len(b),path
     for x,y in zip(a,b):compare(x,y,path)
 compare(original,updated)
-assert set(changes)==allowed and len(changes)==3,changes
-print('PASS place preservation: exactly 3 active scripts changed; original assets and backups intact')
+assert set(changes)==allowed and len(changes)==len(allowed),changes
+print(f'PASS place preservation: exactly {len(allowed)} active scripts changed; original assets and backups intact')

@@ -1,0 +1,57 @@
+MATTERLOOM 8.6 — PRUEBA DE CINTAS (5–8 minutos)
+
+1. Descomprime y abre Matterloom_8_6_Cintas.rbxlx en Roblox Studio.
+   Conserva tus archivos anteriores. Pulsa Play y elige una parcela.
+   La cabecera debe mostrar «8.6 CINTAS» y «08.6 / SENTIDO DE CINTAS Y ARRASTRE».
+   El rótulo secundario 08.3 había quedado sin actualizar en la entrega 8.5.
+
+QUÉ CAMBIA
+- Al mantener clic, el flujo sigue el recorrido: desde donde empiezas hasta
+  donde terminas. Una orientación anterior con R ya no invierte toda la hilera.
+- R orienta las cintas que colocas con un clic (y las piezas que mueves).
+  Durante un trazo de varias celdas, el sentido lo determina el recorrido.
+- La vista previa ahora tiene puntas de flecha; en nivel 1 aparece elevada.
+- La recta utiliza una superficie y flechas generadas como las curvas, con
+  aspecto industrial. Su malla importada sigue guardada dentro del archivo,
+  pero ya no se usa para dibujar las cintas rectas en esta prueba.
+- La simulación conserva la regla: una salida no puede alimentar otra salida.
+
+A. SENTIDO DE LAS FLECHAS
+Carga Demo logística. Sigue un producto por una recta y una curva.
+La dirección de avance debe coincidir con las flechas. La línea cian marca
+la salida. Mira también una recta con R en cada una de las cuatro orientaciones.
+Resultado: ¿coinciden flechas, línea cian y movimiento?
+
+B. ARRASTRE TRAS USAR R
+En espacio libre, pulsa R dos veces y arrastra una hilera hacia arriba en pantalla.
+Repite hacia abajo, izquierda y derecha. Haz un giro en L y dos giros seguidos en S.
+Antes de soltar, mira las puntas de las flechas de la vista previa.
+Las piezas definitivas deben apuntar en el mismo sentido del recorrido.
+Vuelve una celda hacia atrás durante el arrastre: debe deshacer ese último paso.
+Resultado: ¿alguna hilera cambia de sentido al soltar? ¿Aparecen giros inesperados?
+
+C. CINTA ENFRENTADA
+En una línea de la demo, selecciona una recta, pulsa Mover y usa R dos veces.
+Colócala en el mismo sitio con su salida enfrentada a la salida de la anterior.
+Puede haber un producto que ya estaba en camino antes de editar; después,
+los nuevos productos deben quedar detenidos antes de la unión enfrentada.
+Restaura la orientación: el flujo debe reanudarse.
+Resultado: ¿un producto llega a cruzar de una salida a la otra?
+
+D. TU IMPRESIÓN
+¿El arrastre sigue lo que esperabas hacer con el ratón?
+¿Se reconoce la salida sin tener que mirar los productos?
+¿Las rectas y curvas se ven coherentes juntas? ¿Qué detalle cambiarías primero?
+
+Si algo falla, indica A/B/C, los pasos, lo esperado y lo observado.
+Una captura con la cabecera 8.6 y el tramo completo ayuda; un vídeo corto
+permite distinguir el sentido de las flechas del movimiento de los productos.
+
+VALIDACIÓN Y LÍMITES
+Se comprueban lógica, geometría de flechas y compilación con Luau CLI.
+Esta entrega aún necesita tu prueba visual en Studio: no se ha ejecutado el
+motor Roblox en el entorno de desarrollo. No hay guardado de partidas.
+Siguen pendientes otros fallos de 8.5: solicitudes sin respuesta al saturar
+el límite de acciones, rendimiento dependiente del orden de colocación,
+reinicio de ciclos al mover máquinas y mejoras de controles móviles/filtros.
+Si la interfaz deja de responder, detén Play y vuelve a iniciarlo.

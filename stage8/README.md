@@ -1,4 +1,35 @@
-# Matterloom 8.5 — test de conexiones y selección
+# Matterloom — pruebas de conexiones y cintas
+
+## 8.6: sentido visual y arrastre
+
+Ejecutar `bash stage8/check_86.sh`. Genera `build/Matterloom_8_6_Cintas.rbxlx`
+desde la misma base 8.4, aplicando primero las correcciones 8.5.
+Guía: `GUIA_PRUEBA_8_6.txt`. ZIP: `downloads/Matterloom_8_6_Cintas.zip`.
+
+El caso reportado se reproduce con un arrastre contrario a la rotación previa:
+el antiguo planificador invertía el recorrido completo. Ahora un trazo de varias
+celdas sigue el ratón; R sigue orientando una pieza aislada. Las previsualizaciones
+tienen puntas de flecha y respetan el nivel de construcción.
+
+Las rectas importadas contenían sus propias flechas dentro de una malla/textura
+externa; las curvas y el movimiento se generaban con ejes locales +Z. No se ha
+podido inspeccionar esa textura ni ejecutar Roblox en este entorno. Para eliminar
+esa dependencia de orientación, las rectas se generan con el mismo estilo y eje
+de las curvas. Las plantillas importadas permanecen intactas en el archivo.
+Esta es una corrección visual además de la corrección del planificador, no un
+cambio del sentido lógico global ni de la economía.
+
+Validación: casos de arrastre con R y curvas consecutivas, transferencias bloqueadas
+entre cintas enfrentadas en cuatro orientaciones, flechas locales, sustitución de
+rectas/curvas, previsualización en ambos niveles, selección importada, tres demos,
+compilación de los 14 scripts y conservación XML (exactamente cuatro fuentes
+activas distintas del original). Los tests nuevos se observaron fallar en 8.5.
+La prueba de cintas enfrentadas ya pasaba en 8.5; protege esa regla existente.
+Los adaptadores de renderizado comprueban geometría enviada a Roblox, no su
+ejecución en el motor. El aspecto, clics reales y movimiento visual requieren Studio.
+Una revisión independiente no detectó fallos bloqueantes en el alcance del cambio.
+
+## 8.5: conexiones y selección (conservada)
 
 Esta versión parte del archivo 8.4 adjuntado por el usuario, no de la ampliación
 industrial anterior del repositorio. `original-8.4.rbxlx` conserva el archivo recibido.

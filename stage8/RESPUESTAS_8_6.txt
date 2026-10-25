@@ -1,0 +1,19 @@
+PRUEBA MATTERLOOM 8.6
+Dispositivo:
+¿La cabecera dice 8.6 CINTAS?:
+
+A. Flechas y movimiento: bien / falla / confuso
+Detalle:
+B. Arrastre tras usar R y curvas seguidas: bien / falla / confuso
+Detalle:
+C. Cintas enfrentadas y restauradas: bien / falla / confuso
+Detalle:
+
+Lo que esperaba al arrastrar:
+Lo que hizo el juego:
+Pasos para repetir el fallo (incluye si usaste R):
+¿Se repite siempre o a veces?:
+
+¿Se entiende mejor hacia dónde va cada cinta?:
+¿Qué cambiarías de su aspecto o sus controles?:
+Primer error rojo de Output, si aparece:
