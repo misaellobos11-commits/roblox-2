@@ -1,0 +1,19 @@
+PRUEBA MATTERLOOM 8.9
+Dispositivo / tamaño de ventana aproximado:
+¿La cabecera dice 8.9 CATÁLOGO?:
+
+Máquinas originales restauradas: bien / falla
+Pieza que sigue con diseño incorrecto:
+Transporte corregido conservado: bien / falla
+Miniaturas: se ven / faltan / demasiado pequeñas
+Descripción a la derecha: legible / cortada / se superpone
+Categorías y selección: bien / falla
+
+Animación en rectas: bien / saltos / pausas
+Animación en curvas: bien / saltos / sale de la cinta
+Varios productos iguales seguidos: bien / falla
+Salida bloqueada: espera correctamente / vuelve a la entrada
+
+Lo que cambiaría primero:
+Pasos para repetir un fallo:
+Primer error rojo de Output, si aparece:

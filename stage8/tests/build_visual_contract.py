@@ -17,6 +17,7 @@ local Instance={new=function(class)
  function object:SetAttribute(k,v) self.attributes[k]=v end
  function object:GetAttribute(k) return self.attributes[k] end
  function object:GetDescendants() return self.children end
+ function object:GetBoundingBox() return {Position={Y=3.4}},{Y=6.8} end
  function object:FindFirstChild(name)
   if name=='VisualBlender' then return self.visual end
   for _,child in ipairs(self.children) do if child.Name==name then return child end end
@@ -31,8 +32,9 @@ local function block(parent,name,size,pos,color)
 end
 local visualKeys={}
 for name in pairs(Catalog.types) do visualKeys[name]=name end
-local installBlenderAsset=function(wrapper)
+local installBlenderAsset=function(wrapper,key)
  wrapper:SetAttribute('ImportedVisual',true)
+ wrapper:SetAttribute('VisualAssetKey',key)
  wrapper.visual={GetBoundingBox=function() return nil,{Y=6.8} end}
  return true
 end
@@ -67,4 +69,9 @@ print('PASS imported selection footprint: '..cases..' factory cases (rendering a
 if '--belt-only' in sys.argv:
     code=code.replace('for machineType,data in pairs(Catalog.types) do',
         "for machineType,data in pairs(Catalog.types) do\n if machineType~='Belt' then continue end")
+if '--machines' in sys.argv:
+    code=code.replace('for machineType,data in pairs(Catalog.types) do',
+        'for machineType,data in pairs(Catalog.types) do\n if data.size~=2 then continue end')
+    code=code.replace("  local hitbox=model:FindFirstChild('Base')",
+        "  assert(model:GetAttribute('ImportedVisual'),'original machine model was not restored: '..machineType)\n  local hitbox=model:FindFirstChild('Base')")
 (folder/'visual-contract.luau').write_text(code)

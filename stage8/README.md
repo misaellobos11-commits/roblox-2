@@ -1,5 +1,45 @@
 # Matterloom — pruebas de conexiones y cintas
 
+## 8.9: restauración de máquinas, miniaturas y movimiento de cintas
+
+Ejecutar `bash stage8/check_89.sh`. Genera
+`build/Matterloom_8_9_Catalogo_y_Animaciones.rbxlx`, distribuido en
+`downloads/Matterloom_8_9_Catalogo.zip` con guía y respuestas.
+
+El usuario aclaró que solo quería cambiar el transporte; confirmó explícitamente
+recuperar las máquinas grandes y conservar divisores, filtros y ascensores 8.8.
+Los 14 tipos de tamaño 2 vuelven a usar las mallas originales con la selección
+importada; los nueve tipos de transporte especiales conservan la geometría 8.8.
+El catálogo y simulación lógica no cambian. Las plantillas originales se conservan.
+
+Las 24 tarjetas usan ViewportFrame/WorldModel con el mismo Visual.create que la
+pieza colocada. Cámara ajustada a dimensiones/aspecto, iluminación propia y precio
+debajo; nombres y descripciones permanecen a la derecha. Se evita reconstruir
+miniaturas en cada reporte de economía. Los estados de precio, nivel y solicitud
+pendiente siguen controlando la compra. La columna derecha usa filas de altura
+automática, contenido desplazable y categorías con ancho fijo desplazables.
+El diseño usa ScreenGui.AbsoluteSize para respetar los márgenes de Roblox.
+
+Las cintas animan un progreso continuo de 0,58 segundos, casi todo su ancho
+(-1,92 a +1,92 studs), a altura 1,52 para evitar hundirse en la banda. Las curvas
+usan la misma Bézier cúbica de su trazado, sin la anterior esquina de dos tweens.
+La entrega aceptada limpia el cubo anterior, permitiendo reiniciar otro paquete
+idéntico. Si está bloqueado, conserva su posición; eliminar la pieza cancela y
+limpia el tween y sus conexiones. Se mantiene el tick autoritativo de 0,6 s.
+
+Regresiones observadas fallar antes y pasar después: restauración de las 14 máquinas,
+tarjetas con miniatura/descripción/precio, compra pendiente, límites de pantalla y
+márgenes, texto adaptable, recorrido completo y curvo, repetición y limpieza.
+También pasan las direcciones, las tres demos (317/128/427 ventas), la geometría
+del transporte, selección y compilación de 14 scripts. Exactamente dos fuentes
+cambian frente a 8.8 (MachineVisual y BuildUI). Una revisión independiente detectó
+dos problemas de texto/márgenes; ambos se corrigieron y verificaron antes de entregar.
+
+Los tests de UI ejecutan handlers reales sobre adaptadores; no sustituyen el
+renderizado ni mediciones de fluidez/red en Studio. La guía pide comprobar carga
+de miniaturas, legibilidad y movimiento real. El sistema sigue animando desde el
+servidor; esta entrega mejora el recorrido y continuidad, no cambia la red.
+
 ## 8.8: diseño y direcciones desde los puertos reales
 
 Ejecutar `bash stage8/check_88.sh`. Genera

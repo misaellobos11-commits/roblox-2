@@ -54,13 +54,33 @@ CFrame.identity=CFrame.new()
 local Color3={fromRGB=function(...)return {...}end}
 local Enum=setmetatable({},{__index=function(t,k)local v=setmetatable({},{__index=function(_,n)return n end});t[k]=v;return v end})
 local UDim={new=function(...)return {...}end}
-local UDim2={fromOffset=function(...)return {...}end,fromScale=function(...)return {...}end,new=function(...)return {...}end}
+local UDim2={
+ fromOffset=function(x,y)return {X={Scale=0,Offset=x},Y={Scale=0,Offset=y}}end,
+ fromScale=function(x,y)return {X={Scale=x,Offset=0},Y={Scale=y,Offset=0}}end,
+ new=function(x,ox,y,oy)return {X={Scale=x,Offset=ox},Y={Scale=y,Offset=oy}}end,
+}
 local TweenInfo={new=function(...)return {...}end}
 local Methods={}
+local function signal()
+ local s={connections={}}
+ function s:Connect(fn)
+  local c={active=true,fn=fn};function c:Disconnect()self.active=false end
+  table.insert(self.connections,c);return c
+ end
+ function s:Fire(...)
+  for _,c in ipairs(self.connections)do if c.active then c.fn(...)end end
+ end
+ return s
+end
 local Instance={new=function(class)
- local o={values={ClassName=class,Name=class,CFrame=CFrame.identity,Size=Vector3.new(1,1,1)},children={},attributes={}}
+ local o={values={ClassName=class,Name=class,CFrame=CFrame.identity,Size=Vector3.new(1,1,1),AbsoluteSize={X=180,Y=120}},children={},attributes={},signals={}}
  return setmetatable(o,{
-  __index=function(t,k)return Methods[k] or t.values[k]end,
+  __index=function(t,k)
+   if table.find({'Changed','Destroying','Activated','MouseEnter','MouseLeave','SelectionGained','SelectionLost'},k)then
+    if not t.signals[k]then t.signals[k]=signal()end;return t.signals[k]
+   end
+   return Methods[k] or t.values[k]
+  end,
   __newindex=function(t,k,v)
    if k=='Parent' then
     local old=t.values.Parent
@@ -68,6 +88,8 @@ local Instance={new=function(class)
     if v then table.insert(v.children,t) end
    end
    t.values[k]=v
+   if t.signals[k]then t.signals[k]:Fire()end
+   if k=='Value' and t.signals.Changed then t.signals.Changed:Fire(v)end
   end,
  })
 end}
@@ -82,9 +104,14 @@ function Methods:GetDescendants()
  return result
 end
 function Methods:FindFirstChild(name)for _,c in ipairs(self.children)do if c.Name==name then return c end end end
+function Methods:FindFirstChildOfClass(class)for _,c in ipairs(self.children)do if c:IsA(class)then return c end end end
+function Methods:WaitForChild(name)return assert(self:FindFirstChild(name),'missing child '..name)end
+function Methods:GetPropertyChangedSignal(key)
+ if not self.signals[key]then self.signals[key]=signal()end;return self.signals[key]
+end
 function Methods:SetAttribute(k,v)self.attributes[k]=v end
 function Methods:GetAttribute(k)return self.attributes[k]end
-function Methods:Destroy()self.Parent=nil;self.destroyed=true end
+function Methods:Destroy()self.Destroying:Fire();self.Parent=nil;self.destroyed=true end
 function Methods:GetPivot()return if self.PrimaryPart then self.PrimaryPart.CFrame else CFrame.identity end
 function Methods:PivotTo(cf)
  local delta=cf*self:GetPivot():Inverse()
@@ -107,6 +134,7 @@ local TweenService={Create=function(_,object,info,goal)
  function completed:Connect(fn)self.callback=fn end
  local tween={object=object,goal=goal,Completed=completed}
  function tween:Play()table.insert(tweens,self)end
+ function tween:Cancel()self.cancelled=true end
  return tween
 end}
 local importLookups=0

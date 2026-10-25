@@ -11,7 +11,7 @@ allowed={
 }
 if '--86' in sys.argv:
     allowed.add('/StarterPlayer/StarterPlayerScripts/Client/BuildController')
-if '--87-delta' in sys.argv:
+if '--87-delta' in sys.argv or '--89-delta' in sys.argv:
     allowed.remove('/ReplicatedStorage/Shared/MachineCatalog')
 if '--88' in sys.argv or '--88-delta' in sys.argv:
     allowed.update({'/ServerScriptService/Server/BuildServer','/ServerScriptService/Server/FactorySimulation'})

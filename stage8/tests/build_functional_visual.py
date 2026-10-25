@@ -9,4 +9,6 @@ code+='\nlocal Catalog=(function()\n'+(folder/'MachineCatalog.luau').read_text()
 code+='local Construction={CELL_SIZE=4}\nlocal Visual=(function()\n'+visual+'\nend)()\n'
 code+=(base/'transfer-visual.luau').read_text()
 code+=(base/'functional-visual.luau').read_text()
+if '--transport-only' in sys.argv:
+    code=code.replace("if typ=='Belt' then continue end", "if typ=='Belt' or def.size==2 then continue end")
 (folder/'functional-visual.luau').write_text(code)

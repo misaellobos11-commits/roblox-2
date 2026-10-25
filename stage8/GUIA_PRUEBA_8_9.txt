@@ -1,0 +1,44 @@
+MATTERLOOM 8.9 — MÁQUINAS, CATÁLOGO Y ANIMACIONES
+
+Abre Matterloom_8_9_Catalogo_y_Animaciones.rbxlx en Studio y pulsa Play.
+La cabecera debe indicar «8.9 CATÁLOGO». Conserva los archivos anteriores.
+
+1. DISEÑO RESTAURADO
+El receptor, los procesadores, el almacén y la terminal de venta vuelven a usar
+sus modelos importados originales. Las bocas lógicas y la selección se conservan.
+Divisores, filtros, desbordes, ascensores y cintas mantienen el diseño corregido,
+tal como elegiste. Revisa especialmente receptor, fusión y fundidora.
+
+2. CATÁLOGO VISUAL
+Abre Construir. Cada tarjeta muestra una miniatura 3D del propio objeto y su
+precio, en lugar de una fila con el nombre. El nombre, descripción, entradas,
+salidas y recetas siguen en el panel derecho al pasar el cursor o seleccionar.
+Las tarjetas bloqueadas muestran el nivel necesario; las que no puedes comprar
+se atenúan. En pantallas estrechas, desliza las pestañas de categorías.
+El panel derecho permite desplazarse para leer las descripciones largas.
+En pantallas bajas, al abrir el catálogo se ocultan temporalmente los controles
+de construcción; vuelven al elegir un objeto o cerrar el catálogo.
+
+3. MOVIMIENTO SOBRE LAS CINTAS
+Carga Demo logística y sigue varios productos iguales consecutivos.
+- Cada producto recorre la cinta desde la entrada hasta la salida, cerca del borde.
+- En curvas sigue la curva completa, sin girar bruscamente por el centro.
+- Los productos iguales que llegan después vuelven a animarse.
+- Si la salida está bloqueada, el producto espera: no vuelve a aparecer en la entrada.
+Prueba también una curva izquierda y otra derecha construidas por ti.
+
+4. TU OPINIÓN
+¿Las máquinas recuperaron el aspecto que querías?
+¿Reconoces los objetos por la miniatura? ¿Se leen precio y descripción?
+¿El movimiento parece más continuo? ¿Dónde notas saltos o pausas?
+Si algo falla, indica el nombre de la pieza y envía una captura o un vídeo corto.
+Comprueba también seleccionar/mover una máquina restaurada y cancelar la acción.
+
+VALIDACIÓN
+Se comprobaron restauración, selección, tarjetas, estados de compra, distribución
+con márgenes de Roblox, curvas, paquetes iguales, limpieza de animaciones,
+direcciones, demos y compilación. Los assets originales permanecen intactos.
+Las pruebas usan Luau y adaptadores de GUI/geometría, no ejecutan Studio.
+La carga real de miniaturas, fluidez de red, aspecto y rendimiento requieren esta
+prueba en Roblox. La simulación mantiene su ritmo de 0,6 s; no se cambian precios,
+recetas, producción, guardado ni otros sistemas del juego.
