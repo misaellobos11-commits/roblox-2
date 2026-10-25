@@ -1,5 +1,46 @@
 # Matterloom — pruebas de conexiones y cintas
 
+## 8.8: diseño y direcciones desde los puertos reales
+
+Ejecutar `bash stage8/check_88.sh`. Genera
+`build/Matterloom_8_8_Diseno_y_Direcciones.rbxlx` y se distribuye en
+`downloads/Matterloom_8_8_Diseno.zip` con guía y plantilla de respuestas.
+
+El usuario confirmó que 8.7 seguía mal. La calibración de mallas de esa entrega
+no resolvió el problema. La nueva reproducción además encontró una inversión
+lógica: para avance +Z, la izquierda del viajero es +X; `Catalog.port` devolvía -X.
+Se corrigen izquierda/derecha y sus entradas laterales. Doce entradas literales
+de demos cambian a la variante opuesta para mantener sus circuitos existentes.
+
+La construcción parte de 8.6, conservando sus cintas. Los otros 23 tipos dejan
+de depender del frente desconocido de una malla externa: utilizan geometría
+industrial controlada, con puertos y cheurones derivados de `Catalog.inputPorts`
+y `Catalog.outputs`. Se reutilizan los cuerpos procedurales de producción;
+los distribuidores y ascensores tienen un diseño nuevo. Las plantillas GLB
+originales permanecen intactas en el archivo. La apariencia de las máquinas cambia.
+
+La simulación avisa al visual solamente después de una transferencia aceptada.
+El cubo de un distribuidor espera centrado y su animación de salida sigue esa ruta.
+Los ascensores usan las alturas del catálogo, un hueco central abierto y tres
+etapas de movimiento. Al entregar se limpia el cubo anterior para reiniciar el
+siguiente paquete, aunque contenga el mismo material. La animación de las cintas
+no se modifica. La selección usa cajas invisibles sin colisión ni eventos Touch.
+
+Validación observada fallar antes y pasar después:
+- izquierda/derecha relativas al avance en las cuatro rotaciones;
+- 48 entregas de filtros/divisores/desbordes, prioridades y salidas bloqueadas;
+- 60 animaciones de salida aceptada y espera sin falsa salida frontal;
+- ascensores en cuatro rotaciones: entrada/salida, alturas, paquetes idénticos;
+- 184 combinaciones tipo/rotación/preview con el código visual completo:
+  bocas en los puertos reales, puntas de cheurones orientadas, hitboxes y huecos;
+- regresiones de cintas/arrastre/demos y compilación de los 14 scripts.
+
+Las demos conservan ventas 317/128/427 en 120 segundos simulados. La comparación
+XML permite exactamente seis fuentes cambiadas frente al archivo original,
+cinco frente a 8.6. Se conserva todo el resto del lugar, assets y backups.
+Los tests ejecutan código real con adaptadores matemáticos de CFrame/Instance;
+no sustituyen la ejecución visual, raycasts, replicación ni rendimiento en Studio.
+
 ## 8.7: orientación de modelos importados
 
 Ejecutar `bash stage8/check_87.sh`. Genera

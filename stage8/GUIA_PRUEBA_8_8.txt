@@ -1,0 +1,53 @@
+MATTERLOOM 8.8 — DISEÑO Y DIRECCIONES
+
+Abre Matterloom_8_8_Diseno_y_Direcciones.rbxlx en Roblox Studio y pulsa Play.
+La cabecera debe decir «8.8 DIRECCIONES». Conserva los archivos anteriores.
+
+QUÉ CAMBIÓ
+1. Izquierda y derecha se calculan mirando en el sentido de avance del material.
+   La regla anterior estaba invertida, también en la simulación.
+2. Divisores, desbordes, filtros, ascensores y máquinas usan cuerpos geométricos
+   industriales con bocas y flechas dibujadas desde los puertos de la simulación.
+   Su apariencia cambia. Las mallas antiguas quedan guardadas dentro del archivo.
+3. Naranja = entrada. Cian = salida. Las puntas amarillas indican el avance.
+4. Los cubos esperan en el centro de los distribuidores y salen por la ruta
+   realmente aceptada; ya no simulan una salida frontal antes de elegir la ruta.
+5. Los ascensores tienen un hueco central y animación de entrada, subida/bajada
+   y salida. Los paquetes consecutivos del mismo material vuelven a animarse.
+6. Se conservan las cintas y el arrastre que confirmaste en 8.6.
+
+Las demos mantienen sus circuitos. Algunos nombres Left/Right cambian porque
+ahora deben describir el lateral correcto respecto al avance.
+
+PRUEBA PRINCIPAL — EL CASO DE TU CAPTURA
+- Carga Demo logística para tener créditos y máquinas disponibles.
+- Coloca un desborde izquierdo. Mira desde su entrada hacia su salida frontal.
+- Conecta la entrada al receptor con cintas y conecta una cinta a su lateral izquierdo.
+- Deja la salida frontal sin cinta: los productos deben ir al lateral izquierdo.
+- Conecta la salida frontal: debe usarla primero mientras tenga espacio.
+- Repite con desborde derecho y prueba R. El lateral debe girar junto con la pieza.
+Resultado: nombre, flecha y destino del producto deben coincidir.
+
+COMPROBACIONES CORTAS
+- Divisores: priorizan el lateral indicado; si se bloquea, intentan frente.
+- Filtros: el material elegido con F va al lateral indicado; los demás al frente.
+- Divisor triple: reparte entre las tres salidas disponibles.
+- Ascensores: entrada baja/salida alta al subir, entrada alta/salida baja al bajar.
+  Observa varios paquetes iguales seguidos, no solamente el primero.
+- Receptor: el producto sale por la boca cian, nunca por una entrada naranja.
+- Fusión y sintetizador: dos entradas laterales y una salida frontal.
+- Venta: una entrada naranja y ninguna salida.
+- Comprueba que seleccionar, mover y cancelar siguen funcionando.
+
+TU OPINIÓN SOBRE EL DISEÑO
+¿Se reconoce la dirección sin esperar a que llegue un producto?
+¿Se distinguen entrada y salida? ¿Qué pieza se ve peor o más confusa?
+Si algo sigue invertido, envía el nombre exacto y una captura de toda la unión,
+indicando por dónde esperabas que saliera y por dónde sale realmente.
+
+VALIDACIÓN
+Se probaron transferencias reales de la simulación, los puertos y flechas generados
+en las cuatro rotaciones, las animaciones, las demos y la compilación.
+Las pruebas de geometría usan adaptadores matemáticos de Roblox. No se ejecutó
+el motor de Studio: el aspecto final, rendimiento y clics reales requieren tu prueba.
+No se añade guardado ni se corrigen aquí otras incidencias de economía/móviles.

@@ -13,6 +13,10 @@ if '--86' in sys.argv:
     allowed.add('/StarterPlayer/StarterPlayerScripts/Client/BuildController')
 if '--87-delta' in sys.argv:
     allowed.remove('/ReplicatedStorage/Shared/MachineCatalog')
+if '--88' in sys.argv or '--88-delta' in sys.argv:
+    allowed.update({'/ServerScriptService/Server/BuildServer','/ServerScriptService/Server/FactorySimulation'})
+    if '--88' in sys.argv:
+        allowed.add('/StarterPlayer/StarterPlayerScripts/Client/BuildController')
 def compare(a,b,path=''):
     assert a.tag==b.tag and a.attrib==b.attrib,(path,a.tag,b.tag)
     if a.tag=='Item': path+='/'+a.findtext("Properties/string[@name='Name']",'')

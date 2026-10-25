@@ -1,0 +1,20 @@
+PRUEBA MATTERLOOM 8.8
+¿La cabecera dice 8.8 DIRECCIONES?:
+
+Desborde izquierdo: bien / falla
+Desborde derecho: bien / falla
+Divisores y filtros: bien / falla
+Ascensores con varios productos seguidos: bien / falla
+Receptor y otras máquinas: bien / falla
+Selección y movimiento: bien / falla
+
+Pieza que falla:
+Esperaba que saliera por:
+Realmente sale por:
+¿La flecha coincide con el producto?:
+¿Ocurre recién colocada o después de girarla/moverla?:
+
+¿Se entienden mejor las entradas y salidas?:
+Qué cambiaría del diseño:
+¿La Mega fábrica va más lenta?:
+Primer error rojo de Output, si aparece:

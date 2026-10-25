@@ -64,4 +64,7 @@ for machineType,data in pairs(Catalog.types) do
 end
 print('PASS imported selection footprint: '..cases..' factory cases (rendering adapters, not engine execution)')
 '''
+if '--belt-only' in sys.argv:
+    code=code.replace('for machineType,data in pairs(Catalog.types) do',
+        "for machineType,data in pairs(Catalog.types) do\n if machineType~='Belt' then continue end")
 (folder/'visual-contract.luau').write_text(code)
