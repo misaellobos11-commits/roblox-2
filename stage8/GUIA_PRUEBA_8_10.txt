@@ -1,0 +1,28 @@
+MATTERLOOM 8.10 — AJUSTE DE TRES MODELOS
+
+Abre Matterloom_8_10_Tres_Modelos.rbxlx en Studio y pulsa Play.
+La cabecera debe indicar «8.10 AJUSTE».
+
+Se giran 180° solamente las mallas de:
+- Receptor de materia.
+- Sintetizador elemental.
+- Cámara de fusión.
+
+Es un ajuste de orientación de los cuerpos originales. Las conexiones, las
+recetas, las cintas, sus animaciones y el funcionamiento del HUD siguen en 8.9.
+Las miniaturas del catálogo reciben el mismo ajuste porque usan la misma fábrica
+visual. Las otras máquinas conservan su orientación.
+
+PRUEBA BREVE
+1. Carga Demo logística y mira por dónde sale el material del receptor.
+2. En una nueva sesión Play, carga Demo producción y observa fusión y sintetizador.
+3. Comprueba que la boca visible de salida coincide con la cinta conectada y
+   la marca cian. Fusión y sintetizador mantienen sus dos entradas laterales.
+4. Coloca una de esas máquinas y usa R: cuerpo y conexiones deben girar juntos.
+
+Si alguna sigue mal, indica cuál y si la boca queda detrás o a un costado.
+Una vista desde arriba con las cintas conectadas permite distinguir ambos casos.
+
+Las comprobaciones de transformaciones, demos, catálogo, animaciones y compilación
+pasan. El giro se basa en tus capturas; aquí no se ejecuta Roblox Studio ni se
+inspeccionan los vértices de las mallas externas. Falta confirmar el aspecto real.

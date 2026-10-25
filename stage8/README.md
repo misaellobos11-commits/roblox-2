@@ -1,5 +1,25 @@
 # Matterloom — pruebas de conexiones y cintas
 
+## 8.10: tres cuerpos con la salida trasera
+
+`bash stage8/check_810.sh` genera `build/Matterloom_8_10_Tres_Modelos.rbxlx`.
+Distribución: `downloads/Matterloom_8_10_Tres_Modelos.zip`.
+
+El usuario identificó exclusivamente Receiver, ElementSynthesizer y FusionChamber
+como girados después de probar 8.9. Se aplica un yaw local de π a sus tres claves
+de importación, antes de centrar/escalar y aplicar el pivot del wrapper. Ninguna
+otra clave recibe compensación. El catálogo usa la misma orientación al crear
+miniaturas. El único otro cambio es el rótulo de versión en BuildUI.
+
+La regresión ejecuta el instalador real con composición de transforms: 96 casos
+(24 tipos × cuatro rotaciones), corrige los tres cuerpos y preserva los demás.
+Se observó fallar en 8.9 y pasar en 8.10. También pasan las comprobaciones completas
+de lógica, demos, HUD, transporte, animaciones y compilación de 14 scripts.
+La comparación XML permite solo MachineVisual y BuildUI frente a 8.9; todas las
+plantillas, geometría, lógica y backups del lugar se conservan.
+La prueba no inspecciona vértices de mallas externas: el ajuste de 180° sigue
+pendiente de comprobación visual en Studio con la guía incluida.
+
 ## 8.9: restauración de máquinas, miniaturas y movimiento de cintas
 
 Ejecutar `bash stage8/check_89.sh`. Genera
