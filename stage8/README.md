@@ -1,5 +1,36 @@
 # Matterloom — pruebas de conexiones y cintas
 
+## 8.11: colocación de cintas junto a ascensores
+
+`bash stage8/check_811.sh` genera
+`build/Matterloom_8_11_Conexiones_Ascensores.rbxlx`.
+Distribución: `downloads/Matterloom_8_11_Ascensores.zip`, con guía de prueba manual.
+
+Las rutas de ascensores ya funcionaban en las demos, pero el controlador proyectaba
+el puntero al suelo, reiniciaba la altura al elegir una cinta y solo atraía piezas
+a puertos de máquinas grandes. El atajo T no tenía botón visible.
+
+Para las cintas, el puntero se proyecta al plano de cada puerto y se valida el
+acople con Catalog.connected y Construction.canPlace. La vista previa adopta
+posición, altura y orientación. Un arrastre iniciado fija su altura; T fija el
+nivel explícito y cancela el trazo actual. R conserva la orientación manual para
+piezas aisladas. Volver a elegir Transportador reactiva el acople automático.
+Los puertos superpuestos en pantalla priorizan el cercano a la cámara; T permite
+elegir el nivel inferior. El HUD añade el botón de altura a la cuadrícula existente.
+
+Regresiones: groundAt real en 32 combinaciones de ascensor/puerto/giro/subcuadrícula,
+altura de arrastre y selección manual, puertos superpuestos y un circuito de subida,
+cintas elevadas y bajada que registra 26 ventas en 60 segundos simulados. El HUD
+real comprueba botón, callback, etiquetas y restricciones. Los casos de acople y
+botón se observaron fallar sobre 8.10. Pasan también las pruebas anteriores de
+lógica, demos, transporte, modelos, animación, catálogo y compilación.
+El circuito ejecuta beginStroke/strokeTo/endStroke reales; se verifica también que
+el callback T cancele el trazo sin enviar una orden y respete la altura elegida.
+Una revisión independiente no encontró defectos dentro del alcance.
+La comparación XML limita los cambios a BuildController y BuildUI frente a 8.10.
+Los adaptadores no ejecutan el motor de Roblox; la guía cubre la prueba real de
+puntero, cámara, arrastre y controles táctiles. El terreno queda para después.
+
 ## 8.10: tres cuerpos con la salida trasera
 
 `bash stage8/check_810.sh` genera `build/Matterloom_8_10_Tres_Modelos.rbxlx`.

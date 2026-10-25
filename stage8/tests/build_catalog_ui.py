@@ -32,4 +32,6 @@ end
 ui=(folder/'BuildUI.luau').read_text()
 ui='\n'.join(l for l in ui.splitlines() if not l.startswith(('local Catalog=require','local Economy=require','local Visual=require')))
 code+='local UI=(function()\n'+ui+'\nend)()\n'+(base/'catalog-ui.luau').read_text()
+if '--height-control' in sys.argv:
+    code+=(base/'height-control.luau').read_text()
 (folder/'catalog-ui.luau').write_text(code)

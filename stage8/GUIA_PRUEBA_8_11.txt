@@ -1,0 +1,49 @@
+MATTERLOOM 8.11 — CONEXIONES DE ASCENSORES
+
+Extrae el ZIP, abre Matterloom_8_11_Conexiones_Ascensores.rbxlx en Roblox Studio
+y pulsa Play. La cabecera debe indicar «8.11 ASCENSORES».
+
+QUÉ CAMBIÓ
+Al acercar una cinta a un puerto libre, la vista previa adopta su posición,
+altura y sentido. Esto incluye las entradas y salidas de los dos ascensores.
+Al mantener el clic, el tramo conserva la altura con la que comenzó.
+El botón «Altura» (tecla T) permite elegir suelo o elevada manualmente.
+R permite orientar una pieza manualmente; un arrastre sigue el recorrido del ratón.
+Vuelve a elegir Transportador en el catálogo para recuperar el acople automático
+de altura y orientación después de usar T o R.
+
+PRUEBA PRINCIPAL — CONSTRÚYELO TÚ, SIN CARGAR UNA DEMO
+1. Coloca un receptor y un ascensor hacia arriba con sus flechas en el sentido
+   de avance. Deja espacio para una cinta entre ambos.
+2. Elige Transportador y acerca el puntero a la entrada inferior del ascensor.
+   Debe quedar a ras del suelo, alineado y con las flechas entrando al ascensor.
+3. Apunta al espacio inmediatamente junto a la salida superior. La vista previa
+   debe subir y el botón debe mostrar «Altura: elevada».
+4. Mantén el clic y dibuja varias cintas desde esa salida. Todo el tramo debe
+   permanecer elevado. Suelta para construir.
+5. Coloca un ascensor hacia abajo al final del tramo, con su entrada superior
+   mirando a las cintas. Conecta su salida inferior con cintas y una terminal.
+   Comprueba que el material sube, cruza, baja y se vende.
+6. Repite una conexión girando el ascensor con R. Prueba también construir
+   las cintas de una en una y continuar un tramo elevado ya colocado.
+
+CONTROLES Y CASOS A REVISAR
+- Si los dos puertos se superponen en pantalla, se prioriza el cercano a la cámara.
+  Cambia la cámara o usa Altura/T para elegir el nivel que necesitas.
+- T fija el nivel hasta volver a elegir Transportador. Cambiar de altura cancela
+  el arrastre actual para evitar mezclar cintas de dos niveles en una orden.
+- En pantalla táctil, apunta junto al puerto y utiliza Colocar. Prueba el botón
+  Altura para alternar niveles sin teclado.
+- Una posición ocupada debe rechazarse. Las cintas existentes y los ascensores
+  no deben moverse ni cambiar de diseño al construir otras piezas.
+
+PARA CONTARME EL RESULTADO
+Indica si falla la entrada inferior, salida superior, entrada superior o salida
+inferior; si colocabas una pieza o arrastrabas; y qué altura mostraba el botón.
+Una captura desde un costado ayuda a ver si quedó al nivel equivocado.
+
+Se verifican conexiones en cuatro giros, subcuadrícula, bloqueo de altura,
+un circuito colocado mediante el controlador y las regresiones anteriores.
+Las pruebas de la nube usan adaptadores: falta comprobar los clics, el aspecto
+y la interacción táctil dentro del motor de Roblox Studio.
+Esta entrega se centra en ascensores; el terreno es el siguiente paso.
