@@ -1,5 +1,38 @@
 # Matterloom — pruebas de conexiones y cintas
 
+## 8.12: complejo industrial en un cañón
+
+`bash stage8/check_812.sh` genera `build/Matterloom_8_12_Canon_Industrial.rbxlx`.
+ZIP: `downloads/Matterloom_8_12_Canon_Industrial.zip`, con guía para Studio.
+
+Adapta la referencia del usuario a Parts editables: ocho parcelas alrededor de
+una plaza circular con núcleo cian, avenidas, aceras, cuatro rampas, terrazas de
+servicio, edificios, depósitos, tuberías, acantilados arena y acacias dispersas.
+El mapa y la iluminación están incluidos en el archivo para verse antes de Play.
+El generador `world/canyon.py` produce geometría y MapConfig con la misma fuente
+de coordenadas. El cargador elimina únicamente PreviewPlots y devuelve el spawn
+existente; BuildServer sigue creando las parcelas autoritativas. Sus cambios se
+limitan a colores, acceso lateral y orientación del personaje al llegar.
+
+Se conservan selección de parcela, 48 × 48 casillas, máquinas originales, economía,
+HUD y correcciones de transporte/ascensores. Solo cambian cuatro scripts activos:
+MapConfig, MapGenerator, BuildServer y el rótulo de BuildUI. Assets y backups quedan
+intactos. El trabajo antiguo sin terminar de src/world no forma parte de esta versión.
+
+Verificación: 3.665 piezas ancladas en edición, ocho luces, un spawn, ocho huellas
+sin decoración, entradas transitables, rampas sin muro al final, ausencia de
+superficies de carretera/acera superpuestas, IDs únicos y generación determinista.
+El cargador, la creación real de parcelas, sus carteles y la orientación de llegada
+se ejecutan con adaptadores. Rojo comprueba la lectura/escritura de dimensiones,
+transformaciones, materiales y colisiones del XML. Todas las regresiones 8.11 pasan.
+La revisión detectó una intersección rampa/terraza: el nuevo caso falló antes y pasó
+al terminar la pendiente en el borde interior de la terraza (radio 540, altura 40).
+
+Se revisaron proporciones con un render auxiliar de la geometría XML en Blender,
+no una captura de Roblox. `world/render_preview.py` permite reproducir esa vista.
+No se afirma igualdad fotorrealista con la referencia ni rendimiento medido en
+Studio; la guía cubre esas comprobaciones y el recorrido con dos jugadores.
+
 ## 8.11: colocación de cintas junto a ascensores
 
 `bash stage8/check_811.sh` genera

@@ -1,0 +1,46 @@
+MATTERLOOM 8.12 — COMPLEJO DEL CAÑÓN
+
+Extrae el ZIP y abre Matterloom_8_12_Canon_Industrial.rbxlx en Roblox Studio.
+El escenario ya se ve antes de Play. Para jugar, pulsa Play, elige tu parcela
+y comprueba que la cabecera indique «8.12 CAÑÓN».
+
+EL ENTORNO
+Ocho parcelas de 48 × 48 casillas rodean la plaza del núcleo de síntesis.
+Calles, aceras y bordes cian organizan el complejo. Cuatro rampas suben a las
+terrazas de servicio, con edificios, depósitos, tuberías y acantilados de arenisca.
+La vegetación es seca y dispersa; la luz está fijada a una tarde cálida.
+Es una adaptación de la imagen a geometría editable de Roblox. No es una
+reproducción fotorrealista. Las máquinas y el transporte conservan la versión 8.11.
+
+PRUEBA BREVE
+1. Antes de Play, recorre la vista del mapa y observa las ocho parcelas vacías.
+2. Pulsa Play y elige una parcela. Debes aparecer frente a su entrada mirando
+   hacia dentro. Coloca una máquina en una esquina y confirma que nada la estorba.
+3. Camina desde tu parcela a la plaza y luego a una rampa. Debes poder subir
+   andando, sin saltar un escalón alto al llegar a la terraza.
+4. Repite en una parcela lateral, a la izquierda o derecha de la plaza.
+5. Prueba un circuito: receptor → cinta → ascensor arriba → cintas elevadas →
+   ascensor abajo → terminal. La corrección de altura y el botón T siguen activos.
+6. Si puedes, usa Test → Server & Clients con dos jugadores: elige parcelas
+   diferentes, comprueba los carteles y verifica que uno no construya en la ajena.
+
+QUÉ EVALUAR
+- ¿El tono arena/cian y la cantidad de vegetación se acercan a tu idea?
+- ¿La plaza y los edificios tienen suficiente presencia a la altura del jugador?
+- ¿Las calles permiten moverse bien y las parcelas se sienten amplias?
+- ¿Hay algún punto donde te atasques, un objeto flotando o una superficie parpadee?
+- ¿Se mueve con fluidez en tu equipo? Indica si empeora al mirar al centro o al borde.
+
+EDICIÓN
+El entorno está en Workspace/MatterloomWorld, separado por carpetas.
+PreviewPlots contiene pisos de muestra para editar. Al iniciar Play, el servidor
+los reemplaza por las parcelas reales en Workspace/MatterloomPlots. Las máquinas
+continúan perteneciendo a cada parcela. Evita mover solo un piso de muestra:
+las coordenadas de juego también están en ReplicatedStorage/Shared/MapConfig.
+Conserva el archivo 8.11 si necesitas volver al entorno anterior.
+
+VALIDACIÓN
+Pasan las pruebas automáticas de parcelas libres, entradas, rampas, conservación
+de assets/lógica y todas las regresiones 8.11. También se comprobó el formato XML
+con Rojo. Estas pruebas no ejecutan el motor de Roblox Studio: faltan confirmar
+iluminación, interacción real, rendimiento y multijugador en tu prueba.
