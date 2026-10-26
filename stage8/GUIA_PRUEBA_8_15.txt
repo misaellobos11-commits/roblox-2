@@ -1,0 +1,16 @@
+MATTERLOOM 8.15 — PIE DE LOS MUROS DESPEJADO
+
+Abre Matterloom_8_15_Perimetro_Despejado.rbxlx en Studio y pulsa Play.
+El menú Pruebas indica 8.15.
+
+Se quitan las cuarenta rocas pequeñas y puntiagudas colocadas en fila al pie de
+los muros, como las de tu captura. También se eliminan sus colisiones invisibles.
+Los grandes afloramientos del fondo se conservan.
+
+Vuelve al lugar de la captura y recorre la franja junto al muro: debe quedar
+despejada, sin pirámides ni obstáculos invisibles. El HUD, la iluminación, las
+parcelas y toda la construcción siguen como en 8.14.
+
+Se ha verificado que el archivo solo elimina esas 680 piezas y cambia el número
+de versión del menú Pruebas. El formato de la geometría se ha comprobado con Rojo.
+La inspección final del resultado se realiza en Roblox Studio.

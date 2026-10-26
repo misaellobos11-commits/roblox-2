@@ -51,7 +51,7 @@ def rock(scene,parent,center,size,rng,coarse=False):
     # Collision remains available at the distant perimeter; selection rays ignore it.
     hull.find("Properties/bool[@name='CanQuery']").text='false'
 
-def refine(scene):
+def refine(scene,include_talus=True):
     world=scene.world
     def name(i):return i.findtext("Properties/string[@name='Name']")
     landscape=next(i for i in world if i.tag=='Item' and name(i)=='Landscape')
@@ -65,12 +65,13 @@ def refine(scene):
             x,z=((along,depth),(depth,along),(along,-depth),(-depth,along))[side]
             rock(scene,mountains,(x,h*.37-8,z),(rng.uniform(155,220),h,rng.uniform(135,205)),rng)
     # Low irregular talus, with broad gaps around ramps and below the upper walkway.
-    for dx,dz in ((1,0),(-1,0),(0,1),(0,-1)):
-        for along in range(-490,491,90):
-            if abs(along)<50:continue
-            along+=rng.uniform(-12,12);h=rng.uniform(23,38)
-            rock(scene,mountains,(dx*532+dz*along,h*.35-1,dz*532+dx*along),
-                 (rng.uniform(30,49),h,rng.uniform(31,48)),rng,True)
+    if include_talus:
+        for dx,dz in ((1,0),(-1,0),(0,1),(0,-1)):
+            for along in range(-490,491,90):
+                if abs(along)<50:continue
+                along+=rng.uniform(-12,12);h=rng.uniform(23,38)
+                rock(scene,mountains,(dx*532+dz*along,h*.35-1,dz*532+dx*along),
+                     (rng.uniform(30,49),h,rng.uniform(31,48)),rng,True)
     # Keep editor preview floors, but remove their fine grids and dim unclaimed edges.
     preview=next(i for i in world if i.tag=='Item' and name(i)=='PreviewPlots')
     for plot in preview.findall('Item'):

@@ -1,5 +1,18 @@
 # Matterloom — pruebas de conexiones y cintas
 
+## 8.15: retirar las rocas puntiagudas junto al muro
+
+`bash stage8/check_815.sh` genera `build/Matterloom_8_15_Perimetro_Despejado.rbxlx`.
+ZIP: `downloads/Matterloom_8_15_Perimetro_Despejado.zip`.
+
+El usuario señaló las rocas bajas en forma de pirámide. Se retiran las cuarenta
+formaciones de esa franja, incluidos sus volúmenes invisibles de colisión: 680
+piezas en total. Los afloramientos grandes del fondo se mantienen exactamente.
+La opción `include_talus=False` conserva la generación original 8.14 por defecto.
+Se compara el XML completo: las únicas diferencias son las piezas retiradas y el
+rótulo 8.15 del menú Pruebas. Se valida además la geometría restante con Rojo.
+La lógica del juego y los demás ajustes visuales quedan intactos.
+
 ## 8.14: respuesta a la captura real del HUD y el cañón
 
 `bash stage8/check_814.sh` genera `build/Matterloom_8_14_Entorno_y_HUD.rbxlx`.
