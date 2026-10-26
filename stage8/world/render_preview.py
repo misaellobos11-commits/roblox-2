@@ -7,7 +7,9 @@ import xml.etree.ElementTree as ET
 import bpy
 from mathutils import Vector
 
-source,output=sys.argv[sys.argv.index('--')+1:]
+args=sys.argv[sys.argv.index('--')+1:]
+source,output=args[:2]
+view=args[2] if len(args)>2 else 'overview'
 bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False)
 groups={}
 def vector(p,name):return tuple(float(p.findtext(f"*[@name='{name}']/{a}")) for a in ('X','Y','Z'))
@@ -61,6 +63,10 @@ light=bpy.data.objects.new('Sun',sun);bpy.context.collection.objects.link(light)
 light.rotation_euler=(math.radians(28),math.radians(-35),math.radians(-25))
 cam=bpy.data.cameras.new('Overview');obj=bpy.data.objects.new('Overview',cam);bpy.context.collection.objects.link(obj)
 obj.location=(830,-1030,810);target=Vector((0,0,0));obj.rotation_euler=(target-obj.location).to_track_quat('-Z','Y').to_euler()
+if view in ('west','east'):
+    side=-1 if view=='west' else 1
+    obj.location=(side*130,-260,200);target=Vector((side*510,0,12))
+    obj.rotation_euler=(target-obj.location).to_track_quat('-Z','Y').to_euler()
 cam.type='PERSP';cam.lens=42;cam.clip_end=5000
 scene=bpy.context.scene;scene.camera=obj
 scene.render.engine='CYCLES';scene.cycles.samples=48;scene.cycles.use_denoising=False

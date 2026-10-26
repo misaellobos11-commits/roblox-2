@@ -1,0 +1,31 @@
+MATTERLOOM 8.16 — SECTORES LATERALES
+
+Abre Matterloom_8_16_Sectores_Laterales.rbxlx en Studio y pulsa Play.
+El menú Pruebas indica 8.16.
+
+IZQUIERDA / OESTE
+- Sector de energía con tres transformadores, aisladores y armarios de control.
+- Sector de refrigeración con tres ventiladores, depósitos y conexiones a tuberías.
+
+DERECHA / ESTE
+- Zona logística con contenedores, palés, cajas y una grúa de carga baja.
+- Taller de mantenimiento con persiana, extracción, herramientas y bidones.
+
+Ambos costados incluyen senderos de servicio conectados a la calle, bases de
+hormigón, bolardos y rótulos físicos sobre el muro. Se dejan huecos amplios en
+las rampas centrales. Son decoraciones del complejo: no cambian la producción,
+la economía ni los objetos que puedes construir en tu parcela.
+
+PRUEBA
+1. Repite la vista de tu captura y mira ambos laterales: deben distinguirse por
+   sus estructuras, colores y siluetas, sin ocultar las parcelas.
+2. Camina por los senderos de servicio y por las rampas. No debería haber un
+   equipo atravesando el paso ni las tuberías existentes.
+3. Acércate a los cuatro conjuntos y comprueba que el tamaño de los objetos se
+   siente adecuado respecto al personaje y que la decoración no queda flotando.
+4. Comprueba la fluidez en tu equipo. La ampliación añade 246 piezas estáticas
+   y ninguna luz dinámica ni script adicional.
+
+Se verificó que todo lo anterior de 8.15 permanece intacto, salvo el número de
+versión. Pasan los controles de espacio libre y formato XML. La apariencia y
+el recorrido reales se comprueban en Roblox Studio.

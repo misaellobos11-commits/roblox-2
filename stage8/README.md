@@ -1,5 +1,24 @@
 # Matterloom — pruebas de conexiones y cintas
 
+## 8.16: identidad para los costados izquierdo y derecho
+
+`bash stage8/check_816.sh` genera `build/Matterloom_8_16_Sectores_Laterales.rbxlx`.
+ZIP: `downloads/Matterloom_8_16_Sectores_Laterales.zip` con guía de inspección.
+
+Se añaden cuatro conjuntos decorativos fuera de las parcelas: energía y
+refrigeración al oeste, logística y mantenimiento al este. Incluyen equipos,
+contenedores, grúa baja, taller, senderos, bolardos y rótulos sobre los muros.
+`world/side_districts.py` genera 246 piezas ancladas, sin scripts ni luces nuevas.
+La geometría queda por debajo de las terrazas y fuera de calles, parcelas y rampas.
+Los equipos se distribuyen a ambos lados de la tubería existente sin atravesarla.
+
+El archivo conserva exactamente el contenido de 8.15 salvo la carpeta añadida
+`Workspace/MatterloomWorld/SideDistricts` y el rótulo de versión. Los controles
+comprueban determinismo, límites, paso peatonal, accesos y separación de tuberías;
+Rojo verifica las propiedades geométricas al leer/escribir el XML. Se revisan
+ambos laterales con vistas auxiliares de la geometría en Blender; la luz real,
+el recorrido y el rendimiento quedan pendientes de comprobar en Studio.
+
 ## 8.15: retirar las rocas puntiagudas junto al muro
 
 `bash stage8/check_815.sh` genera `build/Matterloom_8_15_Perimetro_Despejado.rbxlx`.
