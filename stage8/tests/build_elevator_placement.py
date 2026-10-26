@@ -2,6 +2,8 @@ from pathlib import Path
 import sys
 folder=Path(sys.argv[1]);base=Path(__file__).parent
 controller=(folder/'BuildController.luau').read_text()
+manual_height='    actions.height=' in controller
+height_action=controller[controller.index('    actions.height='):controller.index('    actions.filter=')] if manual_height else ''
 helper=''
 if 'local function beltPlacement(' in controller:
     helper=controller[controller.index('local function beltPlacement('):controller.index('function Controller.start(')]
@@ -13,7 +15,7 @@ code+='\nlocal clockNow=0\nlocal Visual={setCargo=function()end,transferCargo=fu
 sim=(folder/'FactorySimulation.luau').read_text()
 sim='\n'.join(l for l in sim.splitlines() if not l.startswith(('local Catalog=require','local Visual=require','local Economy=require')))
 code+='local Simulation=(function()\n'+sim.replace('os.clock()','clockNow')+'\nend)()\n'
-code+='''
+code+='\nlocal manualHeightEnabled='+str(manual_height).lower()+'\n'+'''
 local state=Construction.newState(1)
 local origin={X=0,Y=0,Z=0}
 local buildLevel,rotation=0,0
@@ -55,5 +57,9 @@ local function send(command)lastSent=command end
 ui.containsPoint=function()return false end
 '''+ground+'\n'+controller[controller.index('    local function strokeKey'):controller.index('    local function drawStroke')]+'''
 local function drawStroke()end
-'''+controller[controller.index('    local function addStrokeCell'):controller.index('    actions.catalog=')]+controller[controller.index('    actions.height='):controller.index('    actions.filter=')]+'\n'+(base/'elevator-placement.luau').read_text()
+'''+controller[controller.index('    local function addStrokeCell'):controller.index('    actions.catalog=')]+height_action+'\n'+(base/'elevator-placement.luau').read_text()
 (folder/'elevator-placement.luau').write_text(code)
+if '--all-transport' in sys.argv:
+    code=code.replace("local function kind()return 'Belt'end", "local testKind='Belt'\nlocal function kind()return testKind end")
+    code+='\n'+(base/'auto-transport-placement.luau').read_text()
+    (folder/'elevator-placement.luau').write_text(code)

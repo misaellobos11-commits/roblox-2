@@ -1,0 +1,35 @@
+MATTERLOOM 8.13 — CATÁLOGO HORIZONTAL Y SELECCIÓN DIRECTA
+
+Extrae el ZIP, abre Matterloom_8_13_Catalogo_Horizontal.rbxlx y pulsa Play.
+
+CAMBIOS
+- La selección múltiple está activa por defecto. Clic o toque marca/desmarca;
+  arrastrar en PC selecciona un área. Ya no hay botón «Elegir varios» ni tecla V.
+- Con una máquina marcada puedes moverla y consultar/cambiar su receta.
+  Con varias marcadas, las acciones de una sola máquina quedan desactivadas.
+- «Borrar» sirve para una o varias y pide una segunda pulsación para confirmar.
+  «Limpiar selección», Escape o un clic en suelo vacío desmarcan los objetos.
+- Se quitan el botón Altura y la tecla T. Las cintas adoptan la altura del puerto
+  del ascensor automáticamente y el arrastre conserva ese nivel. Los divisores,
+  filtros y desbordes también adoptan la altura de la conexión. Si un puerto
+  queda oculto por otro en la vista, gira la cámara para apuntar al que necesitas.
+- El catálogo tiene miniaturas más pequeñas y dos filas. Se amplía hacia la
+  derecha; en pantallas estrechas se recorre horizontalmente. La descripción
+  permanece a la derecha. En escritorio caben las once máquinas de Producción.
+- Las tres demos siguen disponibles. Su retirada queda para una versión posterior.
+
+PRUEBA BREVE
+1. Construye dos máquinas. Haz clic en suelo vacío y luego en ambas: deben
+   quedar marcadas sin activar ningún modo. Repite usando un arrastre de área.
+2. Desmarca una con otro clic; Mover y Receta deben volver a estar disponibles.
+3. Marca ambas, pulsa Borrar una vez y comprueba que siguen ahí. Pulsa de nuevo
+   para confirmar. Mientras llega la respuesta no debe enviarse otra orden.
+4. Abre Construir → Producción: comprueba los iconos pequeños, las dos filas y
+   la descripción lateral. Reduce la ventana para probar el desplazamiento a la derecha.
+5. Conecta una cinta a la salida superior de un ascensor y arrastra varias.
+   Deben quedar elevadas sin usar ningún control de altura.
+6. Prueba las demos en una parcela vacía. El terreno y las máquinas siguen en 8.12.
+
+Las pruebas automáticas de controlador, catálogo, cintas, ascensores y demos pasan.
+El resultado visual, el desplazamiento real y los controles táctiles requieren
+tu comprobación dentro de Roblox Studio.

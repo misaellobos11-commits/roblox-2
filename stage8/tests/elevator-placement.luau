@@ -30,9 +30,11 @@ Construction.apply(state,1,{kind='place',machineType='ElevatorDown',x=10,z=13,ro
 aim(10,14,1);groundAt({})
 assert(buildLevel==1,'stroke changed height halfway through')
 -- Explicit height choice wins over automatic detection.
+if manualHeightEnabled then
 dragStroke=nil;heightOverride=true;buildLevel=0
 aim(10,12,1);groundAt({})
 assert(buildLevel==0,'manual height selection was ignored')
+end
 print('PASS actual groundAt elevator snapping: '..cases..' port/rotation/subgrid cases and height locks')
 
 -- Reproduce an entire manually built route, not a preconfigured demo.
@@ -71,6 +73,7 @@ assert(Construction.apply(state,1,{kind='place',machineType='ElevatorUp',x=10,z=
 cameraRay={Origin={X=42,Y=40,Z=6.9},Direction={X=0,Y=-1,Z=1}}
 groundAt({})
 assert(candidate.x==10 and candidate.z==9 and buildLevel==1,'occluded lower port won over visible upper port')
+if manualHeightEnabled then
 heightOverride=true;buildLevel=0;groundAt({})
 assert(candidate.x==10 and candidate.z==11 and buildLevel==0,'manual height cannot select the lower coincident port')
 
@@ -85,9 +88,14 @@ endStroke()
 assert(lastSent==nil,'cancelled stroke sent a construction request')
 groundAt({})
 assert(buildLevel==0,'automatic detection overrode the T handler')
+else
+ assert(actions.height==nil,'manual height action should be removed')
+ aim(10,11,0);groundAt({})
+ assert(buildLevel==0 and candidate.z==11,'changing the camera cannot expose the lower port')
+end
 
 -- Manual rotation must not be replaced with the nearby port direction.
 heightOverride=false;rotationOverride=true;rotation=0;buildLevel=1
 aim(10,9,1);groundAt({})
 assert(rotation==0,'automatic snap overrode manual rotation')
-print('PASS real stroke submission/cancellation, T callback and manual rotation priority')
+print('PASS stroke submission, height behavior and manual rotation priority')

@@ -1,5 +1,38 @@
 # Matterloom — pruebas de conexiones y cintas
 
+## 8.13: selección por defecto y catálogo horizontal
+
+`bash stage8/check_813.sh` genera `build/Matterloom_8_13_Catalogo_Horizontal.rbxlx`.
+ZIP: `downloads/Matterloom_8_13_Catalogo_Horizontal.zip` con guía de prueba.
+
+El modo normal permite marcar/desmarcar mediante clic/toque y seleccionar áreas
+con arrastre. La selección única mantiene detalles, mover y receta; un grupo
+desactiva las acciones de un solo objeto. El borrado usa una sola acción para
+cualquier cantidad y conserva la confirmación y bloqueo de solicitudes pendientes.
+Se retiran el selector de modo múltiple y el control manual de altura (incluidos
+V/T). El ajuste automático de altura se aplica a cintas, divisores, filtros y
+desbordes; el arrastre conserva su nivel. Las tres demos permanecen disponibles
+por indicación del usuario.
+
+El catálogo aprovecha más ancho, con miniaturas de hasta 100 × 88 píxeles, dos
+filas y desplazamiento horizontal cuando falta espacio. A partir de 900 píxeles
+caben seis columnas y las once máquinas de Producción sin desplazamiento. Las
+descripciones permanecen a la derecha y se desplazan verticalmente cuando hace
+falta. El panel de acciones se reduce a nueve botones en tres filas.
+
+Se ejecuta el controlador completo con adaptadores de servicios: clic, arrastre,
+toque, cancelación, mover una pieza, protección de acciones de grupo, confirmación
+de borrado, respuestas del servidor, demos y eliminación de T/V. El HUD real prueba
+distribución, estados y límites en cinco tamaños de pantalla. Los casos nuevos
+fallan en 8.12 y pasan en 8.13. Se mantienen las 32 conexiones de ascensores y el
+circuito manual que vende 26 paquetes, además de todas las regresiones anteriores.
+La revisión detectó que retirar T dejaba a los otros transportes sin cambio de
+altura: se extendió la detección al tipo realmente colocado y se verificaron
+128 casos de transporte, además de órdenes reales del controlador para colocar
+un divisor arriba y un filtro abajo. El caso se observó fallar antes del ajuste.
+La comparación XML permite solo BuildController y BuildUI: el cañón y la lógica
+del servidor se conservan. Las pruebas no ejecutan la interfaz en Roblox Studio.
+
 ## 8.12: complejo industrial en un cañón
 
 `bash stage8/check_812.sh` genera `build/Matterloom_8_12_Canon_Industrial.rbxlx`.
