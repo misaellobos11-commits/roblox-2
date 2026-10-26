@@ -36,4 +36,6 @@ if '--height-control' in sys.argv:
     code+=(base/'height-control.luau').read_text()
 if '--horizontal' in sys.argv:
     code+=(base/'horizontal-catalog.luau').read_text()
+if '--contextual' in sys.argv:
+    code+=(base/'contextual-hud.luau').read_text()
 (folder/'catalog-ui.luau').write_text(code)

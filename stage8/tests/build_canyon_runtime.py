@@ -6,7 +6,7 @@ import xml.etree.ElementTree as ET
 folder=Path(sys.argv[1]);base=Path(__file__).parent
 root=ET.parse(sys.argv[2]).getroot()
 world=next(i for i in root.iter('Item') if i.findtext("Properties/string[@name='Name']")=='MatterloomWorld')
-code=(base/'render-engine-adapter.luau').read_text()+'\nlocal workspace=Instance.new("Folder")\n'
+code=(base/'render-engine-adapter.luau').read_text()+'\nlocal Vector2={new=function(x,y)return {X=x,Y=y}end}\nlocal workspace=Instance.new("Folder")\n'
 lines=[]
 def fixture(item,parent):
     n='o'+str(len(lines));lines.append('')
@@ -64,3 +64,16 @@ assert(#plots:GetChildren()==8)
 print('PASS actual canyon loader and eight plots: preview cleanup, origins, entry widths, ownership reset and respawn facing')
 '''
 (folder/'canyon-runtime.luau').write_text(code)
+if '--quiet-plots' in sys.argv:
+    code+='''
+for _,model in plots:GetChildren()do
+ assert(#model:FindFirstChild('Grid'):GetChildren()==0,'server should not replicate grid lines')
+ local board=model:FindFirstChild('PlacaParcela')
+ assert(board and board.Size.X==14 and board.Size.Y==4,'physical entrance sign missing')
+ local sign=board:FindFirstChild('CartelParcela')
+ assert(sign:IsA('SurfaceGui') and not sign.AlwaysOnTop and sign.MaxDistance<=72,'sign still overlays the world from afar')
+ assert(sign:FindFirstChild('Estado').TextScaled)
+end
+print('PASS quiet plots: no replicated grid and eight bounded physical entrance signs')
+'''
+    (folder/'canyon-runtime.luau').write_text(code)

@@ -1,0 +1,45 @@
+MATTERLOOM 8.14 — ENTORNO Y HUD DESPEJADOS
+
+Extrae el ZIP y abre Matterloom_8_14_Entorno_y_HUD.rbxlx en Roblox Studio.
+Pulsa Play y elige tu parcela. El menú «Pruebas» indica la versión 8.14.
+
+LOS CINCO CAMBIOS
+1. HUD contextual: al caminar sin selección desaparece el panel grande inferior.
+   Queda una ayuda pequeña. Construir muestra Girar/Colocar/Cancelar; seleccionar
+   muestra las acciones correspondientes. Receta y Filtro aparecen cuando sirven.
+   La cabecera también es más pequeña.
+2. Las tres demos están en «Pruebas», junto a Construir. El menú se puede cerrar
+   y las demos conservan su comportamiento anterior. No se han eliminado.
+3. Los bloques del cañón se sustituyen por formaciones de roca facetada, con
+   alturas, tamaños y tonos distintos. Son geometría propia y editable, sin
+   modelos externos. Se conservan los accesos y la distribución de parcelas.
+4. Iluminación Realistic/Future, ambiente más cálido, sombras con más contraste
+   y menos niebla/bloom. La calidad gráfica de Roblox influye en el resultado.
+5. Las parcelas ajenas quedan discretas. Solo tu borde se ilumina en cian y la
+   cuadrícula aparece localmente mientras construyes; se oculta al cancelar o
+   abrir el catálogo. El nombre de parcela está en una placa física junto a la
+   entrada, visible de cerca y sin dibujarse encima de otros objetos.
+
+PRUEBA COMPARATIVA
+- Repite la vista amplia de tu captura: ya no deben aparecer las ocho cuadrículas
+  ni los nombres flotando. Sin selección no debe existir el panel de nueve botones.
+- Coloca una máquina: aparece la cuadrícula de tu parcela y una barra compacta.
+  Cancela: ambas desaparecen. Selecciona una o varias máquinas para comprobar las
+  acciones. El borrado continúa pidiendo confirmación.
+- Abre Construir: se mantienen las miniaturas pequeñas, las dos filas horizontales
+  y la descripción a la derecha. Comprueba que el menú Pruebas se cierre al abrirlo.
+- Prueba una cinta y un divisor junto a la salida superior de un ascensor: deben
+  ajustar su altura; la cuadrícula de ayuda también sube con la vista previa.
+- Acércate al cartel de entrada y aléjate: debe sentirse parte del escenario.
+- Camina por la plaza y las cuatro rampas. Mira las rocas desde la altura del
+  personaje; comenta si el tono arena y las siluetas se acercan más a tu referencia.
+- Si puedes, prueba dos jugadores y un equipo de menor potencia. Cada uno debe
+  ver únicamente su propia cuadrícula de construcción. Comprueba la fluidez.
+
+Se mantienen economía, máquinas, cintas, filtros, ascensores, selección múltiple
+y catálogo horizontal de 8.13. El mapa conserva sus ocho parcelas de 48 × 48.
+
+Pasan las comprobaciones automatizadas de interfaz, controlador, cuadrícula,
+carteles, geometría, accesos, formato del archivo y regresiones anteriores.
+La revisión auxiliar de la geometría se hizo con Blender; no es una captura de
+Roblox. Queda comprobar en Studio iluminación, texto, interacción y rendimiento.

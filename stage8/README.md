@@ -1,5 +1,42 @@
 # Matterloom — pruebas de conexiones y cintas
 
+## 8.14: respuesta a la captura real del HUD y el cañón
+
+`bash stage8/check_814.sh` genera `build/Matterloom_8_14_Entorno_y_HUD.rbxlx`.
+Distribución: `downloads/Matterloom_8_14_Entorno_y_HUD.zip` con guía de comparación.
+
+Se corrigen los cinco puntos aceptados por el usuario: panel inferior contextual,
+demos en un menú Pruebas, rocas sin cajas apiladas, iluminación cálida y clara,
+cuadrícula local discreta y nombres integrados en placas físicas. La cabecera pasa
+a 64 px; el panel de acciones queda oculto en reposo y tiene hasta 620 px de ancho.
+Receta/Filtro solo se muestran para una máquina compatible. El catálogo horizontal
+y la descripción derecha se conservan; abrirlo oculta la barra de acciones.
+
+El servidor mantiene una carpeta Grid vacía. Cada cliente genera 98 líneas suaves,
+sin colisión, consultas ni sombras, exclusivamente para su parcela mientras coloca
+o mueve objetos. Sigue la altura automática del transporte y se oculta al cancelar
+o abrir el catálogo. Solo el borde de la parcela propia recibe el cian luminoso.
+Los carteles son SurfaceGui sobre placas de 14 × 4 studs, mirando hacia el acceso,
+con AlwaysOnTop=false y alcance 72, en lugar de BillboardGui de 240 × 78 píxeles.
+
+El archivo conservaba Technology=Voxel y LightingStyle=Soft. Se fijan Future y
+Realistic, prioridad de iluminación, hora consistente 16:12, ambiente cálido y menor
+dispersión atmosférica. `world/refine_814.py` reemplaza las cajas por poliedros
+irregulares propios: cada cara triangular se divide en dos WedgeParts rectos.
+Las caras no colisionan ni participan en raycasts; envolventes invisibles aportan
+colisión en el perímetro. El escenario contiene 5.005 piezas, ocho luces y un spawn.
+
+Validación: controlador completo, HUD en varios tamaños, lifecycle de cuadrícula,
+carteles físicos, 128 acoples de transportes, circuito de ascensores, catálogo,
+simulación y regresiones anteriores. La prueba de HUD nuevo falla sobre 8.13.
+La geometría conserva ocho huellas libres, rampas transitables, IDs únicos y formato
+Roblox comprobado con Rojo. La revisión independiente no encontró regresiones.
+Se comparan todos los scripts: cambian solo BuildUI, BuildController y BuildServer;
+se preservan assets, simulación, catálogo de máquinas y respaldos. En el mundo se
+conservan carreteras, plaza, infraestructura, vegetación y alrededores de parcelas.
+La vista geométrica de Blender permite revisar siluetas, pero no valida la luz ni
+el render real de Roblox. La guía pide comprobar eso y rendimiento en Studio.
+
 ## 8.13: selección por defecto y catálogo horizontal
 
 `bash stage8/check_813.sh` genera `build/Matterloom_8_13_Catalogo_Horizontal.rbxlx`.

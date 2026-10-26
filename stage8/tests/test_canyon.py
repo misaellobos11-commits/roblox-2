@@ -5,13 +5,14 @@ import math
 import xml.etree.ElementTree as ET
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from world.canyon import SLOTS,generate
+refined='--814' in sys.argv
 
 before=ET.parse(sys.argv[1]).getroot();after=ET.parse(sys.argv[2]).getroot()
 def name(i):return i.findtext("Properties/string[@name='Name']")
 def find(root,n):return next(i for i in root.iter('Item') if name(i)==n)
 world=find(after,'MatterloomWorld')
 parts=[i for i in world.iter('Item') if i.get('class') in ('Part','WedgePart','SpawnLocation')]
-assert 1000<len(parts)<4500,len(parts)
+assert 1000<len(parts)<(5500 if refined else 4500),len(parts)
 assert len([i for i in world.iter('Item') if i.get('class')=='PointLight'])<=12
 assert len([i for i in world.iter('Item') if i.get('class')=='SpawnLocation'])==1
 refs=[i.get('referent') for i in after.iter('Item')]
@@ -84,11 +85,32 @@ def scripts(root):
 old,new=scripts(before),scripts(after);assert old.keys()==new.keys()
 expected={'/ReplicatedStorage/Shared/MapConfig','/ServerScriptService/Server/MapGenerator',
           '/ServerScriptService/Server/BuildServer','/StarterPlayer/StarterPlayerScripts/Client/BuildUI'}
+if refined:
+    expected={'/ServerScriptService/Server/BuildServer',
+              '/StarterPlayer/StarterPlayerScripts/Client/BuildController',
+              '/StarterPlayer/StarterPlayerScripts/Client/BuildUI'}
 assert {k for k in old if old[k]!=new[k]}==expected
 for service in ('ReplicatedStorage','ServerStorage','StarterPlayer','ServerScriptService'):
     a=ET.fromstring(ET.tostring(find(before,service)));b=ET.fromstring(ET.tostring(find(after,service)))
     for tree in (a,b):
         for source in tree.findall(".//Properties/ProtectedString[@name='Source']"):source.text=''
     assert ET.tostring(a)==ET.tostring(b),('Non-source asset changed',service)
-assert ET.tostring(generate().world)==ET.tostring(world),'Scene must be reproducible'
+reproduced=generate()
+if refined:
+    from world.refine_814 import refine
+    reproduced=refine(reproduced)
+    for i in reproduced.world.iter('Item'):i.set('referent',i.get('referent').replace('RBX_CANYON_','RBX_CANYON814_'))
+    assert not any(name(i) in ('SandstoneMesa','CliffButtress','TerraceOutcrop','Grid') for i in world.iter('Item'))
+    assert sum(name(i)=='RockFacet' for i in parts)>2000
+    light=find(after,'Lighting')
+    assert light.findtext("Properties/token[@name='LightingStyle']")=='0'
+    assert light.findtext("Properties/bool[@name='PrioritizeLightingQuality']")=='true'
+    assert float(find(light,'MatterloomAtmosphere').findtext("Properties/float[@name='Density']"))<.2
+    for group in ('Roads','Infrastructure','Plaza','Vegetation','PlotSurrounds'):
+        a=ET.fromstring(ET.tostring(find(find(before,'MatterloomWorld'),group)))
+        b=ET.fromstring(ET.tostring(find(world,group)))
+        for tree in (a,b):
+            for item in tree.iter('Item'):item.attrib.pop('referent',None)
+        assert ET.tostring(a)==ET.tostring(b),('Gameplay surroundings changed',group)
+assert ET.tostring(reproduced.world)==ET.tostring(world),'Scene must be reproducible'
 print(f'PASS canyon: {len(parts)} anchored parts, 8 clear plots, one spawn, bounded lights, unique IDs, unchanged gameplay/assets')

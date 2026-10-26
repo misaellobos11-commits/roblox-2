@@ -13,6 +13,7 @@ groups={}
 def vector(p,name):return tuple(float(p.findtext(f"*[@name='{name}']/{a}")) for a in ('X','Y','Z'))
 for item in ET.parse(source).iter('Item'):
     if item.get('class') not in ('Part','WedgePart','SpawnLocation'):continue
+    if float(item.findtext("Properties/float[@name='Transparency']",'0'))>=1:continue
     p=item.find('Properties');size=vector(p,'size');pos=vector(p,'CFrame')
     matrix=[float(p.findtext(f"*[@name='CFrame']/R{r}{c}")) for r in range(3) for c in range(3)]
     color=int(p.findtext("*[@name='Color3uint8']"));material=int(p.findtext("*[@name='Material']"))

@@ -14,7 +14,7 @@ for _,dims in ipairs({{1366,768},{900,640},{800,480},{640,360},{390,844}})do
  end
  assert(grid.CellSize.Y.Offset*2+8+5<=ui.catalog.Size.Y.Offset-96,'second row or scrollbar clips')
 end
-ui:setMode('select',7,false,'Receiver',1,false)
+ui:setMode('select',7,false,'FusionChamber',1,false)
 assert(ui.actions.move.Interactable and ui.actions.recipe.Interactable and ui.actions.bulkRemove.Interactable,'single selection lost its actions')
 ui:setMode('select',nil,false,'Receiver',2,false)
 assert(not ui.actions.move.Interactable and not ui.actions.recipe.Interactable,'group exposes single-object action')

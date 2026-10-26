@@ -139,3 +139,26 @@ end
 print('PASS full controller confirms splitter above and filter below without manual height')
 '''
 (folder/'default-selection.luau').write_text(code)
+if '--local-grid' in sys.argv:
+    code+='''
+actions.cancel()
+local function gridLines()return plot:FindFirstChild('Grid'):GetChildren()end
+for _,line in gridLines()do assert(line.Transparency==1,'grid remains visible while idle')end
+actions.choose('Belt')
+assert(#gridLines()==98,'owner construction grid missing')
+for _,line in gridLines()do
+ assert(line.Transparency>=.66 and line.Transparency<1 and not line.CanQuery and not line.CanCollide and not line.CastShadow)
+end
+local port=Catalog.port(elevator,'output')
+mouse=Vector2.new((port.x+port.dx*.5)*4,(port.z+port.dz*.5)*4)
+RunService.RenderStepped:Fire(.1)
+for _,line in gridLines()do assert(math.abs(line.Position.Y-8.035)<1e-6,'grid did not follow automatically elevated preview')end
+actions.catalog()
+for _,line in gridLines()do assert(line.Transparency==1,'catalog opening leaves grid visible')end
+actions.catalog()
+for _,line in gridLines()do assert(line.Transparency<1)end
+actions.cancel()
+for _,line in gridLines()do assert(line.Transparency==1)end
+print('PASS local grid: shown only for construction, follows automatic height, hides on catalog/cancel')
+'''
+    (folder/'default-selection.luau').write_text(code)
