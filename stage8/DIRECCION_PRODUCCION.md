@@ -7,8 +7,9 @@ quiere incorporar más maquinaria y combinar más cosas en futuras etapas.
 
 La fábrica debe admitir más máquinas, materiales y combinaciones con el tiempo.
 La primera cadena de producción es una introducción al sistema, no su límite.
-Esta decisión no autoriza todavía a implementar nuevas máquinas o un tutorial.
-La entrega 8.18 sigue limitada a la corrección de iluminación solicitada.
+El usuario aprobó revisar las recetas y dibujar el árbol sobre la versión 8.20.
+El resultado está en `production/ANALISIS.md` y en el visor interactivo de esa
+carpeta. Todavía no se han implementado nuevas máquinas, recetas o tutoriales.
 
 ## Criterio para la siguiente etapa
 
@@ -21,7 +22,8 @@ previsualizaciones, colocación y simulación, tras las correcciones anteriores.
 Diseñar la primera experiencia como una cadena pequeña y comprobable:
 recibir materia, transportarla, venderla y aprender a procesarla para aumentar
 su valor. Explicar por qué añadir un procesador y probar precios y tiempos.
-Es una propuesta de siguiente trabajo, pendiente de concretar con el usuario.
+La auditoría del árbol ya está completada; los cambios de progresión e inicio
+seguirán requiriendo una etapa de implementación concreta.
 
 Preparar la ampliación para recetas con múltiples ingredientes y productos,
 máquinas con varios puertos, bifurcaciones y progresión por desbloqueos.

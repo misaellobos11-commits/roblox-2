@@ -1,0 +1,29 @@
+<!doctype html><html lang="es"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Matterloom · Árbol de producción</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,sans-serif;background:#101b24;color:#e4eef1}body{margin:0;padding:24px;max-width:1500px;margin:auto}h1{font-size:28px;margin:4px 0;color:#5edce3}p{line-height:1.6;color:#bdcdd4}nav{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0}button,select{font:inherit;padding:10px 15px;border:1px solid #506775;border-radius:8px;background:#233945;color:#fff;cursor:pointer}button:focus-visible,select:focus-visible{outline:3px solid #ffcf7a}main{display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:20px}.map,aside,.notes{background:#142631;border:1px solid #354a56;border-radius:12px;padding:18px}.map{overflow:auto}svg{width:100%;min-width:760px;display:block}aside{align-self:start;position:sticky;top:16px}aside h2{font-size:21px;color:#6fe0df}dt{color:#9ab4bf;margin-top:16px;font-size:13px}dd{margin:5px 0;font-size:16px}.node{cursor:pointer;transition:opacity .15s}.node:focus{outline:none}.node:focus rect{stroke:#fff;stroke-width:4}.dim{opacity:.15}.edge{transition:opacity .15s}.selected rect{stroke:#fff;stroke-width:3}.tag{color:#f4c985}.notes{margin-top:20px}small{color:#a9bec7}a{color:#73dbe8}@media(max-width:1000px){main{grid-template-columns:1fr}aside{position:static}body{padding:12px}}@media print{body{background:white;color:black}nav{display:none}main{display:block}svg{min-width:0}aside{position:static}.map,aside,.notes{break-inside:avoid}p,small{color:#333}}
+</style>
+<header><small>MATTERLOOM · REVISIÓN DEL JUEGO 8.20</small><h1>De la materia base al producto terminado</h1><p>Selecciona un recurso para resaltar todos sus ingredientes y ver su receta. Cada combinación requiere <strong>todos</strong> los ingredientes indicados. Todos los materiales se pueden vender.</p></header>
+<nav aria-label="Explorar cadenas"><button id="all">Ver árbol completo</button><button data-item="BasicCrystal">Cadena de cristal</button><button data-item="Ingot">Cadena de lingote</button><label>Recurso <select id="resource"><option value="">Elegir…</option></select></label></nav>
+<main><div class="map">__SVG__</div><aside id="details" aria-live="polite"><h2>14 recursos · 13 recetas</h2><p>Elige un recurso en el mapa o en el selector.</p><p class="tag">Borde dorado: material sin receta posterior actualmente. Se puede vender.</p></aside></main>
+<section class="notes"><strong>Qué nos dice este árbol</strong><p>Las cadenas más largas terminan en cristal y lingote. Hidrógeno, compuesto de carbono y mezcla conductiva son los puntos más claros para añadir usos futuros.</p><p>La siguiente preparación recomendada es ampliar los filtros a todos los materiales y revisar la progresión. La propuesta de reactor químico y polímero está en <a href="ANALISIS.md">el análisis</a>; no forma parte de las recetas actuales.</p><small>Valores por unidad. Tiempos nominales entre producciones, sin transporte ni esperas. La simulación revisa cada 0,6 s; el rendimiento real requiere mediciones. Este visor funciona sin internet.</small></section>
+<script>
+const data=__DATA__;
+const select=document.querySelector('#resource');
+const entries=Object.entries(data.items).sort((a,b)=>a[1].name.localeCompare(b[1].name,'es'));
+for(const [id,item] of entries){const o=document.createElement('option');o.value=id;o.textContent=item.name;select.append(o)}
+function ancestors(id,seen=new Set()){if(seen.has(id))return seen;seen.add(id);for(const r of Object.values(data.recipes))if(id in r.outputs)for(const input of Object.keys(r.inputs))ancestors(input,seen);return seen}
+function show(id){
+ if(!id){document.querySelectorAll('.dim,.selected').forEach(n=>n.classList.remove('dim','selected'));select.value='';document.querySelector('#details').innerHTML='<h2>14 recursos · 13 recetas</h2><p>Elige un recurso para consultar su máquina y sus ingredientes.</p><p class="tag">Borde dorado: sin receta posterior; disponible para venta.</p>';return}
+ const selected=ancestors(id);select.value=id;
+ document.querySelectorAll('.node').forEach(n=>{n.classList.toggle('dim',!selected.has(n.dataset.id));n.classList.toggle('selected',n.dataset.id===id)});
+ document.querySelectorAll('.edge').forEach(n=>n.classList.toggle('dim',!(selected.has(n.dataset.from)&&selected.has(n.dataset.to))));
+ const item=data.items[id],recipe=Object.values(data.recipes).find(r=>id in r.outputs);
+ const machine=data.machines[recipe?recipe.machines[0]:'Receiver'];
+ const inputs=recipe?Object.entries(recipe.inputs).map(([key,n])=>`${data.items[key].name} ×${n}`).join(' + '):'Sin ingredientes: genera materia base';
+ const uses=Object.values(data.recipes).filter(r=>id in r.inputs).flatMap(r=>Object.keys(r.outputs).map(key=>data.items[key].name));
+ document.querySelector('#details').innerHTML=`<h2>${item.name}</h2><dl><dt>Valor de venta por unidad</dt><dd>$${item.value}</dd><dt>Máquina</dt><dd>${machine.name}</dd><dt>Construcción y desbloqueo</dt><dd>$${machine.cost} · Nivel ${machine.tier}</dd><dt>Ingredientes</dt><dd>${inputs}</dd><dt>Intervalo nominal</dt><dd>${recipe?recipe.seconds:1.8} s</dd><dt>Se utiliza para producir</dt><dd>${uses.length?uses.join(', '):'Sin receta posterior; puede venderse'}</dd></dl>`;
+}
+select.addEventListener('change',()=>show(select.value));document.querySelector('#all').addEventListener('click',()=>show(''));
+document.querySelectorAll('[data-item]').forEach(b=>b.addEventListener('click',()=>show(b.dataset.item)));
+document.querySelectorAll('.node').forEach(n=>{n.addEventListener('click',()=>show(n.dataset.id));n.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();show(n.dataset.id)}})});
+</script></html>

@@ -1,0 +1,499 @@
+{
+  "filters": [
+    "Carbon",
+    "Oxygen",
+    "RawMatter"
+  ],
+  "items": {
+    "BaseMetal": {
+      "name": "Compuesto metálico",
+      "value": 30
+    },
+    "BasicCrystal": {
+      "name": "Cristal básico",
+      "value": 55
+    },
+    "Carbon": {
+      "name": "Carbono",
+      "value": 8
+    },
+    "CarbonCompound": {
+      "name": "Compuesto de carbono",
+      "value": 24
+    },
+    "ConductiveMix": {
+      "name": "Mezcla conductiva",
+      "value": 34
+    },
+    "Copper": {
+      "name": "Cobre",
+      "value": 14
+    },
+    "Hydrogen": {
+      "name": "Hidrógeno",
+      "value": 11
+    },
+    "Ingot": {
+      "name": "Lingote",
+      "value": 95
+    },
+    "Iron": {
+      "name": "Hierro",
+      "value": 12
+    },
+    "Oxygen": {
+      "name": "Oxígeno",
+      "value": 10
+    },
+    "RawMatter": {
+      "name": "Materia base",
+      "value": 1
+    },
+    "Silicate": {
+      "name": "Silicato",
+      "value": 26
+    },
+    "Silicon": {
+      "name": "Silicio",
+      "value": 12
+    },
+    "SyntheticOre": {
+      "name": "Mineral sintético",
+      "value": 62
+    }
+  },
+  "machines": {
+    "Belt": {
+      "cost": 10,
+      "name": "Transportador",
+      "recipes": [],
+      "tier": 1
+    },
+    "CarbonProcessor": {
+      "cost": 125,
+      "name": "Separador de carbono",
+      "recipes": [
+        "special_carbon"
+      ],
+      "tier": 1
+    },
+    "CopperProcessor": {
+      "cost": 220,
+      "name": "Procesador de cobre",
+      "recipes": [
+        "special_copper"
+      ],
+      "tier": 3
+    },
+    "Crystallizer": {
+      "cost": 500,
+      "name": "Cristalizador",
+      "recipes": [
+        "crystal_basic"
+      ],
+      "tier": 4
+    },
+    "ElementSynthesizer": {
+      "cost": 600,
+      "name": "Sintetizador elemental",
+      "recipes": [
+        "synth_metal",
+        "synth_conductor"
+      ],
+      "tier": 4
+    },
+    "ElevatorDown": {
+      "cost": 150,
+      "name": "Ascensor hacia abajo",
+      "recipes": [],
+      "tier": 4
+    },
+    "ElevatorUp": {
+      "cost": 150,
+      "name": "Ascensor hacia arriba",
+      "recipes": [],
+      "tier": 4
+    },
+    "FilterLeft": {
+      "cost": 85,
+      "name": "Filtro izquierdo",
+      "recipes": [],
+      "tier": 2
+    },
+    "FilterRight": {
+      "cost": 85,
+      "name": "Filtro derecho",
+      "recipes": [],
+      "tier": 2
+    },
+    "FusionChamber": {
+      "cost": 450,
+      "name": "Cámara de fusión",
+      "recipes": [
+        "fusion_carbon",
+        "fusion_silicate"
+      ],
+      "tier": 3
+    },
+    "HydrogenProcessor": {
+      "cost": 220,
+      "name": "Generador de hidrógeno",
+      "recipes": [
+        "special_hydrogen"
+      ],
+      "tier": 3
+    },
+    "IronProcessor": {
+      "cost": 250,
+      "name": "Formador de hierro",
+      "recipes": [
+        "special_iron"
+      ],
+      "tier": 4
+    },
+    "MineralFormer": {
+      "cost": 650,
+      "name": "Formador mineral",
+      "recipes": [
+        "form_ore"
+      ],
+      "tier": 5
+    },
+    "OverflowLeft": {
+      "cost": 80,
+      "name": "Desborde izquierdo",
+      "recipes": [],
+      "tier": 3
+    },
+    "OverflowRight": {
+      "cost": 80,
+      "name": "Desborde derecho",
+      "recipes": [],
+      "tier": 3
+    },
+    "OxygenProcessor": {
+      "cost": 170,
+      "name": "Generador de oxígeno",
+      "recipes": [
+        "special_oxygen"
+      ],
+      "tier": 2
+    },
+    "Receiver": {
+      "cost": 200,
+      "name": "Receptor de materia",
+      "recipes": [],
+      "tier": 1
+    },
+    "Seller": {
+      "cost": 100,
+      "name": "Terminal de venta",
+      "recipes": [],
+      "tier": 1
+    },
+    "SiliconProcessor": {
+      "cost": 210,
+      "name": "Procesador de silicio",
+      "recipes": [
+        "special_silicon"
+      ],
+      "tier": 3
+    },
+    "Smelter": {
+      "cost": 720,
+      "name": "Fundidora",
+      "recipes": [
+        "melt_ingot"
+      ],
+      "tier": 5
+    },
+    "SplitterLeft": {
+      "cost": 55,
+      "name": "Divisor izquierdo",
+      "recipes": [],
+      "tier": 2
+    },
+    "SplitterRight": {
+      "cost": 55,
+      "name": "Divisor derecho",
+      "recipes": [],
+      "tier": 2
+    },
+    "SplitterThree": {
+      "cost": 95,
+      "name": "Divisor de tres vías",
+      "recipes": [],
+      "tier": 3
+    },
+    "Storage": {
+      "cost": 160,
+      "name": "Almacén",
+      "recipes": [],
+      "tier": 2
+    }
+  },
+  "recipes": {
+    "crystal_basic": {
+      "added_sale_value": 29,
+      "ideal_tick_interval": 3.5999999999999996,
+      "input_sale_value": 26,
+      "inputs": {
+        "Silicate": 1
+      },
+      "machines": [
+        "Crystallizer"
+      ],
+      "name": "Cristal básico",
+      "output_sale_value": 55,
+      "outputs": {
+        "BasicCrystal": 1
+      },
+      "seconds": 3.5
+    },
+    "form_ore": {
+      "added_sale_value": 32,
+      "ideal_tick_interval": 3.5999999999999996,
+      "input_sale_value": 30,
+      "inputs": {
+        "BaseMetal": 1
+      },
+      "machines": [
+        "MineralFormer"
+      ],
+      "name": "Mineral sintético",
+      "output_sale_value": 62,
+      "outputs": {
+        "SyntheticOre": 1
+      },
+      "seconds": 3.5
+    },
+    "fusion_carbon": {
+      "added_sale_value": 6,
+      "ideal_tick_interval": 3.0,
+      "input_sale_value": 18,
+      "inputs": {
+        "Carbon": 1,
+        "Oxygen": 1
+      },
+      "machines": [
+        "FusionChamber"
+      ],
+      "name": "Compuesto de carbono",
+      "output_sale_value": 24,
+      "outputs": {
+        "CarbonCompound": 1
+      },
+      "seconds": 3.0
+    },
+    "fusion_silicate": {
+      "added_sale_value": 4,
+      "ideal_tick_interval": 3.0,
+      "input_sale_value": 22,
+      "inputs": {
+        "Oxygen": 1,
+        "Silicon": 1
+      },
+      "machines": [
+        "FusionChamber"
+      ],
+      "name": "Silicato",
+      "output_sale_value": 26,
+      "outputs": {
+        "Silicate": 1
+      },
+      "seconds": 3.0
+    },
+    "melt_ingot": {
+      "added_sale_value": 33,
+      "ideal_tick_interval": 4.2,
+      "input_sale_value": 62,
+      "inputs": {
+        "SyntheticOre": 1
+      },
+      "machines": [
+        "Smelter"
+      ],
+      "name": "Lingote",
+      "output_sale_value": 95,
+      "outputs": {
+        "Ingot": 1
+      },
+      "seconds": 4.0
+    },
+    "special_carbon": {
+      "added_sale_value": 7,
+      "ideal_tick_interval": 2.4,
+      "input_sale_value": 1,
+      "inputs": {
+        "RawMatter": 1
+      },
+      "machines": [
+        "CarbonProcessor"
+      ],
+      "name": "Carbono",
+      "output_sale_value": 8,
+      "outputs": {
+        "Carbon": 1
+      },
+      "seconds": 2.0
+    },
+    "special_copper": {
+      "added_sale_value": 13,
+      "ideal_tick_interval": 3.0,
+      "input_sale_value": 1,
+      "inputs": {
+        "RawMatter": 1
+      },
+      "machines": [
+        "CopperProcessor"
+      ],
+      "name": "Cobre",
+      "output_sale_value": 14,
+      "outputs": {
+        "Copper": 1
+      },
+      "seconds": 2.8
+    },
+    "special_hydrogen": {
+      "added_sale_value": 10,
+      "ideal_tick_interval": 3.0,
+      "input_sale_value": 1,
+      "inputs": {
+        "RawMatter": 1
+      },
+      "machines": [
+        "HydrogenProcessor"
+      ],
+      "name": "Hidrógeno",
+      "output_sale_value": 11,
+      "outputs": {
+        "Hydrogen": 1
+      },
+      "seconds": 2.5
+    },
+    "special_iron": {
+      "added_sale_value": 11,
+      "ideal_tick_interval": 3.0,
+      "input_sale_value": 1,
+      "inputs": {
+        "RawMatter": 1
+      },
+      "machines": [
+        "IronProcessor"
+      ],
+      "name": "Hierro",
+      "output_sale_value": 12,
+      "outputs": {
+        "Iron": 1
+      },
+      "seconds": 2.7
+    },
+    "special_oxygen": {
+      "added_sale_value": 9,
+      "ideal_tick_interval": 2.4,
+      "input_sale_value": 1,
+      "inputs": {
+        "RawMatter": 1
+      },
+      "machines": [
+        "OxygenProcessor"
+      ],
+      "name": "Oxígeno",
+      "output_sale_value": 10,
+      "outputs": {
+        "Oxygen": 1
+      },
+      "seconds": 2.2
+    },
+    "special_silicon": {
+      "added_sale_value": 11,
+      "ideal_tick_interval": 3.0,
+      "input_sale_value": 1,
+      "inputs": {
+        "RawMatter": 1
+      },
+      "machines": [
+        "SiliconProcessor"
+      ],
+      "name": "Silicio",
+      "output_sale_value": 12,
+      "outputs": {
+        "Silicon": 1
+      },
+      "seconds": 2.6
+    },
+    "synth_conductor": {
+      "added_sale_value": 8,
+      "ideal_tick_interval": 3.5999999999999996,
+      "input_sale_value": 26,
+      "inputs": {
+        "Copper": 1,
+        "Silicon": 1
+      },
+      "machines": [
+        "ElementSynthesizer"
+      ],
+      "name": "Mezcla conductiva",
+      "output_sale_value": 34,
+      "outputs": {
+        "ConductiveMix": 1
+      },
+      "seconds": 3.2
+    },
+    "synth_metal": {
+      "added_sale_value": 10,
+      "ideal_tick_interval": 3.5999999999999996,
+      "input_sale_value": 20,
+      "inputs": {
+        "Carbon": 1,
+        "Iron": 1
+      },
+      "machines": [
+        "ElementSynthesizer"
+      ],
+      "name": "Compuesto metálico",
+      "output_sale_value": 30,
+      "outputs": {
+        "BaseMetal": 1
+      },
+      "seconds": 3.2
+    }
+  },
+  "source_sha256": "40d6167fc8924053d569cb8460971df6cb3bae23b6054b77338a4b3e4e35c8f0",
+  "start_cash": 700,
+  "terminal_items": [
+    "BasicCrystal",
+    "CarbonCompound",
+    "ConductiveMix",
+    "Hydrogen",
+    "Ingot"
+  ],
+  "tiers": [
+    {
+      "name": "Inicio",
+      "threshold": 0,
+      "tier": 1
+    },
+    {
+      "name": "Procesamiento",
+      "threshold": 180,
+      "tier": 2
+    },
+    {
+      "name": "Síntesis",
+      "threshold": 650,
+      "tier": 3
+    },
+    {
+      "name": "Industria",
+      "threshold": 1800,
+      "tier": 4
+    },
+    {
+      "name": "Tecnología avanzada",
+      "threshold": 4000,
+      "tier": 5
+    }
+  ],
+  "version": "8.20"
+}

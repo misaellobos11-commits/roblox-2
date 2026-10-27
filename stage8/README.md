@@ -1,5 +1,23 @@
 # Matterloom — pruebas de conexiones y cintas
 
+## Revisión del árbol de producción de 8.20
+
+El usuario aprobó auditar las recetas y preparar el árbol antes de expandir la
+maquinaria. No se genera una nueva versión del juego en esta revisión.
+
+- `production/ANALISIS.md`: hallazgos, progresión y propuestas futuras separadas.
+- `production/RECETAS_ACTUALES.md`: 13 recetas con entradas, salidas, tiempos y valores.
+- `production/ABRIR_Arbol_Produccion.html`: visor sin dependencias externas.
+- `production/Arbol_Produccion.svg`: diagrama exportable.
+- `production/catalogo_8_20.json`: datos extraídos ejecutando el Luau del archivo.
+
+Regenerar: `python stage8/production/audit.py`, después
+`python stage8/production/build_tree.py` y `node stage8/production/check_viewer.js`.
+La extracción confirma 14 recursos alcanzables y 5 productos sin receta posterior.
+La recomendación es ampliar filtros, medir cadenas completas y después introducir
+una rama química que aproveche hidrógeno y compuesto de carbono. Las propuestas
+no se mezclan con el árbol de recetas vigentes.
+
 ## 8.20: identidad visual de los recursos transportados
 
 `bash stage8/check_820.sh` genera `build/Matterloom_8_20_Recursos_Transportables.rbxlx`.

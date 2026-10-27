@@ -1,0 +1,14 @@
+MATTERLOOM — ÁRBOL DE PRODUCCIÓN 8.20
+
+1. Extrae todos los archivos del ZIP.
+2. Abre ABRIR_Arbol_Produccion.html con tu navegador. Funciona sin internet.
+3. Elige un recurso para ver sus ingredientes y la máquina que lo produce.
+4. Usa los botones de cristal/lingote para resaltar esas cadenas completas.
+5. Lee ANALISIS.md con un editor de texto para los hallazgos y propuestas.
+
+Arbol_Produccion.svg es el diagrama completo; también se abre en el navegador.
+RECETAS_ACTUALES.md contiene la tabla de recetas, tiempos y valores.
+catalogo_8_20.json es la copia estructurada de los datos analizados.
+
+Este paquete documenta el juego 8.20. No contiene una nueva partida .rbxlx.
+Las nuevas máquinas mencionadas son propuestas, no contenido ya implementado.
