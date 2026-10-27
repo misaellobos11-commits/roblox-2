@@ -1,5 +1,31 @@
 # Matterloom — pruebas de conexiones y cintas
 
+## 8.20: identidad visual de los recursos transportados
+
+`bash stage8/check_820.sh` genera `build/Matterloom_8_20_Recursos_Transportables.rbxlx`.
+Entrega: `downloads/Matterloom_8_20_Recursos_Transportables.zip`, con guía y vista
+auxiliar de los recursos. El usuario eligió formas propias por recurso.
+
+`visuals/cargo_shapes.py` define 14 modelos originales de 3 a 6 piezas: mineral,
+carbono, botellas de gas, láminas, barras, compuestos, bobina, cristales y lingote.
+El registro está separado de recetas, precios y puertos; una nueva materia puede
+recibir su forma sin modificar la lógica de transporte. Hay un contenedor de
+respaldo para recursos futuros que aún no tengan modelo.
+
+El Part animado existente se conserva como portador invisible. Sus piezas siguen
+su CFrame mediante una conexión que se desconecta al destruirlo. Todas están
+ancladas, sin colisiones, eventos de contacto, consultas ni sombras individuales.
+El apoyo se ajusta a la misma altura de banda para cintas, divisores y ascensores.
+No se añaden luces. Se reemplazan tanto Producto como ProductoSalida.
+
+La comparación XML permite solo MachineVisual y la etiqueta de versión.
+Las pruebas cubren 14 recursos en 5 transportes, rotaciones, geometría y limpieza,
+las animaciones de curvas/bloqueo existentes y rutas de divisores/ascensores.
+Los adaptadores no reproducen replicación, señales diferidas ni renderizado de
+Roblox. Se debe probar suavidad y rendimiento en Studio con muchas cargas,
+pues cada paquete ahora mueve varias piezas. La vista auxiliar usa las mismas
+definiciones y no reproduce la iluminación del motor Roblox.
+
 ## 8.19: desfiladero conectado y cielo
 
 `bash stage8/check_819.sh` genera `build/Matterloom_8_19_Canon_Estratificado_y_Cielo.rbxlx`.

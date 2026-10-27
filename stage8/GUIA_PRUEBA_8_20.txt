@@ -1,0 +1,46 @@
+MATTERLOOM 8.20 — RECURSOS CON FORMA PROPIA
+
+Extrae el ZIP y abre Matterloom_8_20_Recursos_Transportables.rbxlx en Roblox Studio.
+Pulsa Play; el menú Pruebas indica 8.20.
+
+DISEÑOS
+- Materia base: fragmentos de mineral gris claro.
+- Carbono: fragmentos oscuros agrupados.
+- Oxígeno: cilindro azul con válvula.
+- Hidrógeno: dos botellas claras unidas por un soporte.
+- Silicio: láminas apiladas.
+- Hierro: núcleo metálico con fragmentos y óxido.
+- Cobre: conjunto de barras cobrizas sujetas.
+- Compuesto de carbono: bloque prensado con bandas.
+- Silicato: agregado mineral de tonos arena.
+- Compuesto metálico: pieza de aleación formada por varias capas.
+- Mezcla conductiva: bobina de cobre.
+- Cristal básico: grupo de prismas azules con puntas.
+- Mineral sintético: roca con inclusiones y vetas azuladas.
+- Lingote: barra metálica con extremos inclinados y sello superior.
+
+Se conservan nombres, materiales lógicos, precios, recetas, velocidad y recorridos.
+Los diseños son pequeños modelos de 3 a 6 piezas; no añaden luces ni colisiones.
+La materia ya no se representa como un cubo de neón uniforme.
+
+PRUEBA
+1. Activa Demo producción desde Pruebas para comparar los recursos disponibles.
+   Usa MEGA DEMO para revisar cadenas más complejas y la fluidez con muchas cintas.
+2. Comprueba si distingues materia base, gases, cristales y lingotes desde tu
+   distancia habitual de cámara, tanto de día como de noche.
+3. Sigue un recurso en una curva, un divisor, un filtro y ambos ascensores:
+   todas sus piezas deben moverse juntas y quedar sobre la banda.
+4. Bloquea una salida: el recurso debe esperar; al liberar el paso continúa la
+   producción. Comprueba también varios productos idénticos consecutivos.
+5. Mueve o borra una cinta ocupada y verifica que no queden piezas sueltas.
+6. Indica cuáles se ven demasiado pequeños, demasiado oscuros o parecidos.
+
+Incluye Vista_previa_recursos.png: vista auxiliar de las formas y los colores.
+No es una captura de Roblox Studio y su iluminación puede ser diferente.
+
+VALIDACIÓN
+Pasaron las pruebas de los 14 modelos, seguimiento de movimiento y rotación,
+espacio sobre la banda, limpieza, curvas, bloqueo, 60 combinaciones de salidas,
+ascensores y formato XML. La comparación del archivo protege las máquinas,
+el entorno, las recetas y la economía. Los tests usan adaptadores; Studio debe
+confirmar la suavidad real, borrado/movimiento y rendimiento con muchas cargas.

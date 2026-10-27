@@ -71,6 +71,17 @@ elif view in ('north','south'):
     side=-1 if view=='north' else 1
     obj.location=(260,-side*130,150);target=Vector((0,-side*510,14))
     obj.rotation_euler=(target-obj.location).to_track_quat('-Z','Y').to_euler()
+elif view=='cargo':
+    obj.location=(8,-15,22);target=Vector((0,0,0))
+    obj.rotation_euler=(target-obj.location).to_track_quat('-Z','Y').to_euler()
+    labels=['Materia base','Carbono','Oxígeno','Hidrógeno','Silicio','Hierro','Cobre',
+            'Comp. de carbono','Silicato','Comp. metálico','Mezcla conductiva',
+            'Cristal básico','Mineral sintético','Lingote']
+    for index,label in enumerate(labels):
+        font=bpy.data.curves.new('ResourceLabel','FONT');font.body=label;font.align_x='CENTER';font.size=.18
+        text=bpy.data.objects.new(label,font);bpy.context.collection.objects.link(text)
+        text.location=((index%4-1.5)*3.1,-(index//4-1.5)*3.2-1.22,.02)
+        mat=bpy.data.materials.new('LabelInk');mat.diffuse_color=(.8,.9,.95,1);font.materials.append(mat)
 cam.type='PERSP';cam.lens=42;cam.clip_end=5000
 scene=bpy.context.scene;scene.camera=obj
 scene.render.engine='CYCLES';scene.cycles.samples=48;scene.cycles.use_denoising=False

@@ -93,7 +93,7 @@ local Instance={new=function(class)
   end,
  })
 end}
-function Methods:IsA(class)return self.ClassName==class or (class=='BasePart' and self.ClassName=='Part')end
+function Methods:IsA(class)return self.ClassName==class or (class=='BasePart' and (self.ClassName=='Part' or self.ClassName=='WedgePart'))end
 function Methods:GetChildren()return table.clone(self.children)end
 function Methods:GetDescendants()
  local result={}
