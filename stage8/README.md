@@ -1,5 +1,32 @@
 # Matterloom — pruebas de conexiones y cintas
 
+## 8.17: completar el perímetro y ciclo de día/noche
+
+`bash stage8/check_817.sh` genera `build/Matterloom_8_17_Perimetro_Dia_Noche.rbxlx`.
+Entrega: `downloads/Matterloom_8_17_Perimetro_Dia_Noche.zip`, con guía de prueba.
+
+Doce módulos completan los cuatro muros, con estaciones de bombeo, ventilación,
+conductos y paneles; `world/perimeter_817.py` añade 376 piezas y 12 luces sin
+sombras (20 en total). Se conserva la decoración de 8.16, con pasos libres.
+Se eligieron módulos industriales de escala visible desde la parcela para
+integrar los muros al complejo y evitar pequeñas piezas de relleno.
+
+`environment/DayNight.server.luau` publica una época común por servidor.
+`DayNight.client.luau` calcula la hora desde `GetServerTimeNow()` y aplica una
+paleta suave, sin replicar cambios cada fotograma. El módulo `DayNight.luau`
+contiene el reloj y las transiciones. Por defecto son 1200 segundos por ciclo,
+iniciando a las 16:12. El atributo numérico de Workspace `DayNightCycleSeconds`
+permite ajustarlo (mínimo 60; por debajo se usa el valor predeterminado).
+Este ajuste es una decisión inicial de implementación, no hora real del usuario.
+El cliente controla solo las luces del entorno, no las de las máquinas.
+
+Las pruebas cubren vuelta de medianoche, sesiones largas, entrada tardía,
+pausas de fotogramas, duración configurable y alta/baja de luces. Se ejecutan
+los scripts que contiene el archivo entregable con adaptadores de servicios;
+no sustituyen una prueba en Studio. La comparación XML completa protege el
+contenido anterior; Rojo verifica geometría y propiedades. La visibilidad de
+noche y el rendimiento quedan pendientes de comprobar en Roblox Studio.
+
 ## 8.16: identidad para los costados izquierdo y derecho
 
 `bash stage8/check_816.sh` genera `build/Matterloom_8_16_Sectores_Laterales.rbxlx`.

@@ -67,6 +67,10 @@ if view in ('west','east'):
     side=-1 if view=='west' else 1
     obj.location=(side*130,-260,200);target=Vector((side*510,0,12))
     obj.rotation_euler=(target-obj.location).to_track_quat('-Z','Y').to_euler()
+elif view in ('north','south'):
+    side=-1 if view=='north' else 1
+    obj.location=(260,-side*130,150);target=Vector((0,-side*510,14))
+    obj.rotation_euler=(target-obj.location).to_track_quat('-Z','Y').to_euler()
 cam.type='PERSP';cam.lens=42;cam.clip_end=5000
 scene=bpy.context.scene;scene.camera=obj
 scene.render.engine='CYCLES';scene.cycles.samples=48;scene.cycles.use_denoising=False

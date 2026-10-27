@@ -1,0 +1,42 @@
+MATTERLOOM 8.17 — PERÍMETRO Y DÍA / NOCHE
+
+Extrae el ZIP, abre Matterloom_8_17_Perimetro_Dia_Noche.rbxlx en Roblox Studio
+y pulsa Play. El menú Pruebas indica 8.17.
+
+QUÉ CAMBIA
+- Doce módulos industriales repartidos por los cuatro muros: paneles grandes,
+  conductos, ventilación, estaciones de bombeo y armarios de servicio.
+- Se conservan los sectores de energía, refrigeración, logística y taller de 8.16.
+- Nuevos senderos en los tramos norte/sur, conectados a las aceras.
+- Ciclo completo de 20 minutos con amanecer y atardecer graduales.
+- Los jugadores de un mismo servidor comparten la hora, incluso al entrar tarde.
+- Las luces del complejo aumentan suavemente al oscurecer. La noche tiene una
+  base de luz azul para facilitar la construcción; verificarla en tu pantalla.
+
+PRUEBA VISUAL
+1. Repite la vista de la franja vacía de tu captura: ahora debe haber equipamiento
+   y detalle sobre el muro. Recorre los cuatro lados y las rampas centrales.
+2. Comprueba que tuberías, depósitos y paneles no se atraviesan, que están apoyados
+   y que los pasos permanecen libres. Son decorativos, no máquinas de producción.
+3. Al iniciar, el reloj está en las 16:12. El atardecer se aprecia en unos 90
+   segundos y la noche en unos 3 minutos. El amanecer llega en unos 12 minutos.
+4. De noche, coloca cintas y una máquina, lee sus flechas y recorre una parcela.
+   Indica si prefieres más luz, menos tono azul o un ciclo más largo.
+5. Prueba con dos jugadores en Studio: ambos deben ver la misma fase del día.
+6. Comprueba la fluidez desde la plaza mirando hacia los nuevos módulos.
+
+PRUEBA RÁPIDA OPCIONAL EN STUDIO
+Antes de Play, selecciona Workspace y añade un atributo numérico llamado
+DayNightCycleSeconds con valor 120. Así todo el ciclo dura 2 minutos.
+Usa 1200 para volver a 20 minutos, o elimina el atributo. El mínimo admitido
+es 60 segundos; valores menores usan el predeterminado de 20 minutos.
+El ciclo se reinicia por servidor. No sigue la hora real de tu país.
+
+VALIDACIÓN
+Se comprobó que los archivos anteriores de 8.16 permanecen intactos salvo el
+rótulo de versión y las nuevas incorporaciones. Pasan las pruebas geométricas,
+el formato XML, la compilación Luau y las pruebas de reloj/sincronización con
+adaptadores de servicios. Se añaden 376 piezas estáticas y 12 luces sin sombras
+(20 luces en total en el entorno). Se revisó la geometría con una vista auxiliar.
+La iluminación final, las colisiones del personaje y el rendimiento real deben
+comprobarse en Roblox Studio; este entorno no ejecuta su motor.
