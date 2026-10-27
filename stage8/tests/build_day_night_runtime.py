@@ -35,7 +35,12 @@ local function startClient()
  local clientWorkspace=setmetatable({}, {__index=workspace})
  function clientWorkspace:WaitForChild(name) assert(name=='MatterloomWorld');return world end
  local workspace=clientWorkspace
- local atmosphere,correction={},{}
+ local atmosphere,correction,clouds={},{},{}
+ function clientWorkspace:FindFirstChildOfClass(name)
+  if name=='Terrain' then return {FindFirstChildOfClass=function(_,cls)
+   assert(cls=='Clouds');return clouds
+  end} end
+ end
  local Lighting={}
  function Lighting:FindFirstChildOfClass(name)
   if name=='Atmosphere' then return atmosphere end
@@ -47,7 +52,7 @@ local function startClient()
   return ({Lighting=Lighting,RunService=RunService,ReplicatedStorage=ReplicatedStorage})[name]
  end}
 '''+client+'''
- return {lighting=Lighting,lamp=lamp,world=world,beat=RunService.Heartbeat,atmosphere=atmosphere,correction=correction}
+ return {lighting=Lighting,lamp=lamp,world=world,beat=RunService.Heartbeat,atmosphere=atmosphere,correction=correction,clouds=clouds}
 end
 local function near(a,b) assert(math.abs(a-b)<1e-6,tostring(a)..' vs '..tostring(b)) end
 local a=startClient()
@@ -104,5 +109,19 @@ for minute=0,1440 do
  end
 end
 print('PASS full-day runtime: fog stays off, lamps enabled at night, improved ambient floor and night contrast')
+'''
+if '--sky' in sys.argv:
+    code+='''
+for _,hour in ipairs({0,6,12,18,24}) do
+ now=attributes.DayNightEpoch+(hour+24-16.2)*attributes.DayNightCycleSeconds/24
+ a.beat:Fire(.05)
+ assert(a.clouds.Cover>=.43 and a.clouds.Cover<=.59)
+ assert(a.clouds.Density>=.55 and a.clouds.Density<=.69)
+ assert(a.atmosphere.Density==0 and a.atmosphere.Haze==0)
+ if hour%24==0 then
+  assert(a.clouds.Color[1]<160,'Night clouds must not remain bright cream')
+ elseif hour==12 then assert(a.clouds.Color[1]>230) end
+end
+print('PASS clouds transition with shared clock while atmosphere stays clear')
 '''
 output=Path(sys.argv[2]);output.parent.mkdir(parents=True,exist_ok=True);output.write_text(code)

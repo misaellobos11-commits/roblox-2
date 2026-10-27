@@ -1,5 +1,28 @@
 # Matterloom — pruebas de conexiones y cintas
 
+## 8.19: desfiladero conectado y cielo
+
+`bash stage8/check_819.sh` genera `build/Matterloom_8_19_Canon_Estratificado_y_Cielo.rbxlx`.
+Entrega: `downloads/Matterloom_8_19_Canon_Estratificado_y_Cielo.zip` con guía.
+
+`world/horizon_819.py` sustituye únicamente `CanyonRockFormations`: un anillo de
+arenisca estratificada, salientes unidos a la pared y coronas de altura variable.
+Hay 1388 piezas nuevas frente a las 1804 del fondo anterior. Las caras visibles
+son sólidas, cuatro bases conectan las esquinas y cuatro límites invisibles,
+situados detrás del paisaje en |x|/|z|=884, impiden caídas fuera del suelo del mapa.
+La geometría se mantiene fuera de los edificios existentes (hasta radio 622).
+
+El cielo usa las texturas incluidas en Roblox, ajusta orientación, sol, luna y
+estrellas. Las nubes nativas de Terrain ganan cobertura y cambian con el reloj;
+GlobalWind mueve las nubes. No se recupera la niebla. Se conservan las 136 luces,
+el ciclo de 20 minutos y toda la producción, maquinaria, parcelas y HUD.
+
+La comparación XML permite solo esos cambios y la etiqueta de versión. Las
+pruebas cubren todos los lados/esquinas del límite, las propiedades de Sky y
+Clouds mediante Rojo y la actualización nocturna con adaptadores de servicios.
+La revisión auxiliar de geometría no renderiza el cielo Roblox; es necesario
+comprobar colisiones del personaje, cielo y rendimiento en Studio.
+
 ## 8.18: niebla eliminada e iluminación de las farolas
 
 `bash stage8/check_818.sh` genera `build/Matterloom_8_18_Noche_Clara_y_Focos.rbxlx`.

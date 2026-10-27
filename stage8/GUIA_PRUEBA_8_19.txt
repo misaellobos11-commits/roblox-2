@@ -1,0 +1,35 @@
+MATTERLOOM 8.19 — CAÑÓN ESTRATIFICADO Y CIELO
+
+Extrae el ZIP y abre Matterloom_8_19_Canon_Estratificado_y_Cielo.rbxlx en Roblox
+Studio. Pulsa Play; el menú Pruebas indica 8.19.
+
+CAMBIOS
+- Las rocas aisladas del fondo se sustituyen por un desfiladero conectado,
+  con capas de arenisca, salientes erosionados y alturas variadas.
+- El borde tiene colisión continua. Detrás del paisaje hay un límite de seguridad
+  adicional para impedir la caída al vacío si llegas a lo alto de las formaciones.
+- Se conservan los terrenos, parcelas, sectores industriales y edificios.
+- Más presencia de nubes y viento suave, con cambios de tono y cobertura de noche.
+- Sol y luna más contenidos y cielo nocturno con estrellas.
+- La niebla continúa desactivada y se mantiene la iluminación de los focos de 8.18.
+
+PRUEBA
+1. Repite la vista de tu captura y comprueba si el fondo se siente más coherente
+   con el complejo. Observa también el horizonte desde el suelo de una parcela.
+2. Sube las cuatro rampas y recorre las pasarelas. Acércate al borde exterior y
+   a las esquinas: no debe existir un paso hacia fuera del mapa.
+3. Comprueba que los edificios y sus torres no atraviesan la roca nueva.
+4. Mira el cielo al iniciar, al anochecer y de noche. Las nubes deben cambiar de
+   tono y dejar ver parte del cielo; no debe volver la neblina marrón.
+5. Comprueba que de noche sigues distinguiendo cintas y máquinas con los focos.
+6. Revisa fluidez y colisiones en tu equipo, incluidas las esquinas del cañón.
+
+Para acelerar la prueba, antes de Play añade a Workspace el atributo numérico
+DayNightCycleSeconds=120. Elimina el atributo o usa 1200 para el ciclo normal.
+
+VALIDACIÓN
+Las pruebas comprueban límites continuos, separación de edificios, el formato de
+geometría/cielo/nubes y un ciclo completo con adaptadores. Se revisó la geometría
+con una vista auxiliar, que no reproduce el cielo ni la iluminación de Roblox.
+El aspecto final, la carga de las texturas incluidas en Roblox, el movimiento del
+personaje y el rendimiento deben comprobarse en Studio.
