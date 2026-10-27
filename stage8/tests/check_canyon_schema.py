@@ -11,6 +11,16 @@ source=Path(sys.argv[1]).resolve()
 def geometry(path):
     records=[]
     for item in ET.parse(path).iter('Item'):
+        if item.get('class')=='PointLight':
+            props=item.find('Properties');record=['PointLight']
+            for key,default in (('Brightness','1'),('Range','8')):
+                record.append(float(props.findtext(f"*[@name='{key}']",default)))
+            for axis in ('R','G','B'):
+                record.append(float(props.findtext(f"Color3[@name='Color']/{axis}",'1')))
+            for key,default in (('Enabled','true'),('Shadows','false')):
+                record.append(props.findtext(f"*[@name='{key}']",default))
+            records.append(tuple(record))
+            continue
         if item.get('class') not in ('Part','WedgePart','SpawnLocation'):continue
         props=item.find('Properties');record=[item.get('class')]
         for name in ('size','CFrame'):
@@ -32,4 +42,4 @@ with tempfile.TemporaryDirectory() as directory:
         for x,y in zip(a,b):
             equal=math.isclose(x,y,rel_tol=1e-6,abs_tol=1e-4) if isinstance(x,float) else x==y
             assert equal,('Geometry changed during Roblox schema round-trip',index,x,y)
-print('PASS Roblox XML round-trip: sizes, transforms, materials, shapes, anchoring and query/collision flags')
+print('PASS Roblox XML round-trip: geometry, collision/query flags and real light properties')

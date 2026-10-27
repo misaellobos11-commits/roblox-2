@@ -47,7 +47,7 @@ local function startClient()
   return ({Lighting=Lighting,RunService=RunService,ReplicatedStorage=ReplicatedStorage})[name]
  end}
 '''+client+'''
- return {lighting=Lighting,lamp=lamp,world=world,beat=RunService.Heartbeat,atmosphere=atmosphere}
+ return {lighting=Lighting,lamp=lamp,world=world,beat=RunService.Heartbeat,atmosphere=atmosphere,correction=correction}
 end
 local function near(a,b) assert(math.abs(a-b)<1e-6,tostring(a)..' vs '..tostring(b)) end
 local a=startClient()
@@ -83,5 +83,26 @@ attributes.DayNightCycleSeconds=1800
 bootServer()
 assert(attributes.DayNightCycleSeconds==1800,'Configured duration must survive initialization')
 print('PASS shipped server/client: common epoch, late join, midnight/noon, stalled frames, streamed lights, custom duration (service adapters)')
+'''
+if '--clear-night' in sys.argv:
+    code+='''
+-- Revisit a full cycle: fog must not come back after the initial update.
+for minute=0,1440 do
+ local hour=minute/60
+ now=attributes.DayNightEpoch+(hour+24-16.2)*attributes.DayNightCycleSeconds/24
+ a.beat:Fire(.05)
+ assert(a.atmosphere.Density==0 and a.atmosphere.Haze==0 and a.atmosphere.Glare==0,
+        'Runtime cycle restored the atmospheric veil')
+ assert(a.lighting.FogStart>=10000 and a.lighting.FogEnd>a.lighting.FogStart,
+        'Legacy distance fog is still visible')
+ local night=Cycle.sample(hour).night
+ assert(a.lamp.Enabled==(night>.01),'Real lamps must illuminate at dusk and switch off by day')
+ if night==1 then
+  assert(a.lighting.Ambient[1]>=100 and a.lighting.OutdoorAmbient[1]>=125,
+         'Unlit factory areas need a stronger ambient floor')
+  assert(a.correction.Contrast<=.04,'Night contrast crushes the shadow detail')
+ end
+end
+print('PASS full-day runtime: fog stays off, lamps enabled at night, improved ambient floor and night contrast')
 '''
 output=Path(sys.argv[2]);output.parent.mkdir(parents=True,exist_ok=True);output.write_text(code)

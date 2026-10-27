@@ -1,5 +1,32 @@
 # Matterloom — pruebas de conexiones y cintas
 
+## 8.18: niebla eliminada e iluminación de las farolas
+
+`bash stage8/check_818.sh` genera `build/Matterloom_8_18_Noche_Clara_y_Focos.rbxlx`.
+ZIP: `downloads/Matterloom_8_18_Noche_Clara_y_Focos.zip`, con guía de inspección.
+
+La captura nocturna del usuario mostró niebla sobre el fondo y parcelas negras.
+El archivo conservaba `Atmosphere.Haze=0.6` y el ciclo volvía a establecer una
+densidad positiva cada actualización. Además, 116 de las 124 farolas solo tenían
+un cuerpo de neón y carecían de una fuente de luz. Las pruebas de regresión
+fallan con esos síntomas sobre la versión 8.17.
+
+La corrección anula Density/Haze/Glare en el archivo y durante el ciclo, y aleja
+la niebla clásica fuera del mapa. Las farolas existentes reciben PointLights
+sin sombras (rango 48); hay 136 luces contando las 12 del perímetro. Se apagan
+de día y aumentan al oscurecer. La paleta nocturna refuerza la luz ambiental y
+reduce el contraste; la paleta diurna se conserva. No se añade geometría.
+
+La comparación XML protege todo el contenido anterior ajeno a estos cambios.
+Las pruebas ejecutan un ciclo completo, entrada tardía y luz dinámica con
+adaptadores, y comprueban también propiedades de luces al pasar por Rojo.
+No hay motor de Roblox disponible: aspecto y coste de renderizado quedan
+pendientes de validar en Studio, especialmente en equipos modestos.
+
+Dirección futura confirmada por el usuario: ampliar maquinaria y combinaciones.
+Ver [DIRECCION_PRODUCCION.md](DIRECCION_PRODUCCION.md) antes de tocar producción,
+recetas, puertos o progresión. La 8.18 no incorpora nuevas máquinas.
+
 ## 8.17: completar el perímetro y ciclo de día/noche
 
 `bash stage8/check_817.sh` genera `build/Matterloom_8_17_Perimetro_Dia_Noche.rbxlx`.

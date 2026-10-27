@@ -1,0 +1,39 @@
+MATTERLOOM 8.18 — NOCHE CLARA Y FOCOS
+
+Extrae el ZIP y abre Matterloom_8_18_Noche_Clara_y_Focos.rbxlx en Roblox Studio.
+Pulsa Play; el menú Pruebas indica 8.18.
+
+CAMBIOS
+- Se elimina la neblina atmosférica y se aleja la niebla por distancia fuera del
+  mapa, tanto al abrir el archivo como durante el ciclo de día y noche.
+- Las 124 farolas existentes ahora contienen una luz real. En 8.17, 116 de ellas
+  solo tenían una pieza de neón: brillaban pero no iluminaban el suelo.
+- Se mantienen las 12 luces de los módulos del perímetro.
+- Las luces aumentan al atardecer y se apagan de día. No proyectan sombras
+  individuales, para reducir el coste al iluminar varios sectores.
+- La noche tiene más luz ambiental y menos contraste para poder distinguir las
+  máquinas en el centro de las parcelas, lejos de las farolas.
+- Se conserva el ciclo de 20 minutos, la geometría, las máquinas y la producción.
+
+PRUEBA
+1. Desde la vista de tu captura, revisa que no vuelva el velo marrón al oscurecer.
+2. Camina por una calle, una entrada de parcela y la pasarela superior: los focos
+   deben iluminar el suelo, además de verse encendidos.
+3. En el centro de una parcela, coloca una máquina y unas cintas. Comprueba que
+   distingues las flechas y los materiales, sin que la noche parezca pleno día.
+4. Entra con un segundo jugador y comprueba que ambos ven la misma fase del ciclo.
+5. Prueba la fluidez mirando la plaza desde lejos y recorriendo las calles.
+6. Al amanecer, comprueba que la iluminación artificial se reduce y se apaga.
+
+PRUEBA RÁPIDA
+Antes de Play, selecciona Workspace y añade el atributo numérico
+DayNightCycleSeconds con valor 120: día y noche completos en dos minutos.
+Elimina el atributo o usa 1200 para volver a veinte minutos.
+
+VERIFICADO
+Las pruebas reproducían en 8.17 las 116 farolas sin luz y la niebla reactivada por
+el ciclo. Ahora pasan los controles de fuentes de luz, el ciclo completo con
+adaptadores de servicios, la sincronización y el formato Roblox XML. El archivo
+mantiene intactos los objetos del mapa y la lógica de producción. No se ejecutó
+Roblox Studio aquí: el resultado visual y el rendimiento de las 136 luces deben
+validarse en tu equipo, especialmente con calidad gráfica baja.
