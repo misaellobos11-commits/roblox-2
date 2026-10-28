@@ -12,4 +12,8 @@ source=(folder/'FactorySimulation.luau').read_text()
 source='\n'.join(l for l in source.splitlines() if not l.startswith(('local Catalog=require','local Visual=require','local Economy=require')))
 code+='local Simulation=(function()\n'+source.replace('os.clock()','clockNow')+'\nend)()\n'
 code+=(base/'expansion.luau').read_text()
+if (folder/'ExpansionDemo.luau').exists():
+    demo=(folder/'ExpansionDemo.luau').read_text()
+    demo='\n'.join(l for l in demo.splitlines() if 'require(' not in l)
+    code+='\nlocal ExpansionDemo=(function()\n'+demo+'\nend)()\n'+(base/'expansion-demo.luau').read_text()
 (folder/'expansion-test.luau').write_text(code)
