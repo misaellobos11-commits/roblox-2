@@ -27,25 +27,25 @@
 Files: stage8/expansion/content.py, stage8/build_821.py,
 stage8/tests/build_expansion.py, stage8/tests/expansion.luau.
 Interface: content.MACHINES declares machines and recipes; generated overlay extends C and E before freeze.
-- [ ] Write/run tests against 8.20, expect missing additional machines.
-- [ ] Add 20 machines/40 recipes, data-driven input ports, full filter list and recipe descriptions.
-- [ ] Execute actual simulation for all recipes: missing/full/valid inputs, routing, sales and tiers.
-- [ ] Commit verified content.
+- [x] Write/run tests against 8.20, expect missing additional machines.
+- [x] Add 20 machines/40 recipes, data-driven input ports, full filter list and recipe descriptions.
+- [x] Execute actual simulation for all recipes: missing/full/valid inputs, routing, sales and tiers.
+- [x] Commit verified content.
 
 ### Task 2: Visuals and access
 
 Files: stage8/expansion/models.py, cargo.py, runtime-ui patches and tests.
 Interface: generated MachineVisual uses registered machine/cargo part specifications; existing Visual.create/setCargo contracts preserved.
-- [ ] Add failing tests for unique models, ports and all cargo clearances.
-- [ ] Generate distinctive machine silhouettes, compact resources and catalog previews.
-- [ ] Provide accessible filter selection and an expansion test using current demo permissions.
-- [ ] Run visual/catalog tests and old transport regressions; inspect auxiliary model preview.
-- [ ] Commit verified models/UI.
+- [x] Add failing tests for unique models, ports and all cargo clearances.
+- [x] Generate distinctive machine silhouettes, compact resources and catalog previews.
+- [x] Provide accessible filter selection and an expansion test using current demo permissions.
+- [x] Run visual/catalog tests and old transport regressions; inspect auxiliary model preview.
+- [x] Commit verified models/UI.
 
 ### Task 3: Review and delivery
 
 Files: stage8/check_821.sh, stage8/GUIA_PRUEBA_8_21.txt,
 stage8/expansion/RECETAS_8_21.md, downloads/Matterloom_8_21_Expansion_Industrial.zip.
-- [ ] Build place, compile changed scripts, verify XML isolation and full regression suite.
-- [ ] Independent whole-change review; fix material findings with regression tests.
-- [ ] Package place/guide/recipes, push feature branch and verify public ZIP byte-for-byte.
+- [x] Build place, compile changed scripts, verify XML isolation and full regression suite.
+- [x] Independent whole-change review; fix material findings with regression tests.
+- [x] Package place/guide/recipes, push feature branch and verify public ZIP byte-for-byte.

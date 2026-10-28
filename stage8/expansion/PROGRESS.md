@@ -26,3 +26,8 @@ a user-visible navigation fix: RED test reproduced B requiring a second press;
 GREEN after closing through the catalog callback. Entire suite GREEN afterward.
 No deferred review findings. Studio rendering/performance and economy pacing
 remain explicit manual validation items; complete network handler not emulated.
+
+Task 3: complete. Public ZIP (4,714,047 bytes) downloaded and byte-compared
+against local archive and exact built place. 33 PASS groups in check_821.sh;
+offline catalog JS syntax checked. Feature branch pushed, no main merge.
+Delivery commit: 52453df. Existing root checkout untouched.
