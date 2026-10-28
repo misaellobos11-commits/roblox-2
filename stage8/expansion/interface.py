@@ -22,12 +22,16 @@ def ui(s):
     s=replace_once(s,"    local self={screen=screen",(BASE/'filter-picker.luau').read_text()+"\n    local self={screen=screen")
     s=replace_once(s,'    function self:setCatalogOpen(open)', '''    function self:toggleFilterPicker()
         if currentType==nil or not Catalog.isFilter(currentType) then return end
-        picker.Visible=not picker.Visible
+        local open=not picker.Visible
+        if open and catalog.Visible then
+            if callbacks.catalog then callbacks.catalog() else self:setCatalogOpen(false) end
+        end
+        picker.Visible=open
         search.Text=''
         for item,b in pairs(materialButtons)do
             b.Visible=true;b.BackgroundColor3=if item==(filterSelection or 'Carbon') then Color3.fromRGB(18,103,112) else colors.button
         end
-        if picker.Visible then catalog.Visible=false;demoPanel.Visible=false end
+        if picker.Visible then demoPanel.Visible=false end
         if adapt then adapt()end
     end
     function self:closeFilterPicker()picker.Visible=false end

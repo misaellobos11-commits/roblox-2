@@ -30,3 +30,18 @@ assert(extraUI.actions.expansionDemo.Interactable,'expansion test unavailable')
 extraUI:setMode('place',nil,false,'Receiver',0,false)
 assert(not extraUI.actions.expansionDemo.Interactable,'demo allowed while placing')
 print('PASS all 44 cards discoverable by family, searchable filter picker and expansion demo action')
+-- Exercise B -> F -> close -> B through the same catalog callback as Controller.
+local catalogOpen=false
+local modalUI
+local function toggleCatalog()
+ catalogOpen=not catalogOpen;modalUI:setCatalogOpen(catalogOpen)
+end
+modalUI=UI.new({catalog=toggleCatalog})
+modalUI:setMode('select',8,false,'FilterLeft',1,false)
+modalUI:setDetails('FilterLeft',nil,'Carbon')
+toggleCatalog();assert(catalogOpen)
+modalUI:toggleFilterPicker()
+assert(not catalogOpen,'F hides catalog without synchronizing controller B state')
+modalUI:closeFilterPicker();toggleCatalog()
+assert(catalogOpen and modalUI.catalog.Visible,'first B after picker must reopen catalog')
+print('PASS catalog/filter modal handoff preserves controller state and first-press B behavior')

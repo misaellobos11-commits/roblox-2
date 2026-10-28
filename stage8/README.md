@@ -1,5 +1,21 @@
 # Matterloom — pruebas de conexiones y cintas
 
+## 8.21: expansión industrial
+
+`bash stage8/check_821.sh` genera `build/Matterloom_8_21_Expansion_Industrial.rbxlx`.
+Añade **20 máquinas, 40 recetas y 40 recursos** (44 tipos / 53 recetas / 54 recursos).
+Las nuevas familias son Metalurgia, Química, Cristales, Electrónica, Componentes
+y Avanzada. Incluye modelos originales, miniaturas, selector de filtros buscable,
+recetas con G y una demo finita en parcela vacía con 12 ciclos por máquina.
+La demo concede $60.000 de prueba y desbloquea niveles; la economía normal
+conserva $700 iniciales y los requisitos previos, con niveles adicionales 6–8.
+
+`expansion/content.py` es el registro de contenido; `models.py` y `cargo.py`
+definen formas. El overlay conserva los activos importados, mapa, día/noche y
+lógica de cintas. `GUIA_PRUEBA_8_21.txt` explica cómo probarlo en Studio.
+`python stage8/expansion/build_docs.py` genera las 40 recetas en texto y HTML.
+Las pruebas Luau usan adaptadores; render y rendimiento reales requieren Studio.
+
 ## Revisión del árbol de producción de 8.20
 
 El usuario aprobó auditar las recetas y preparar el árbol antes de expandir la

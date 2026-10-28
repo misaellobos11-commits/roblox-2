@@ -1,0 +1,68 @@
+MATTERLOOM 8.21 — EXPANSIÓN INDUSTRIAL
+
+ABRIR
+1. Descarga el ZIP y extrae su contenido.
+2. Abre Matterloom_8_21_Expansion_Industrial.rbxlx en Roblox Studio.
+3. Pulsa Play y elige una parcela.
+
+QUÉ SE AÑADE
+20 máquinas, 40 recetas y 40 recursos nuevos. El juego queda con 44 tipos de
+estructura, 53 recetas y 54 recursos. Se conservan los modelos anteriores,
+el transporte corregido, el terreno y el ciclo día/noche.
+
+Familias nuevas en Construir: Metalurgia, Química, Cristales, Electrónica,
+Componentes y Avanzada. Las categorías se desplazan horizontalmente si no caben.
+Cada máquina nueva tiene dos recetas. Selecciona una máquina colocada y pulsa G
+o el botón Receta. La descripción derecha muestra los ingredientes y la salida.
+Naranja = entrada; cian = salida. Las máquinas que combinan ingredientes tienen
+entradas laterales; puedes introducir cualquiera de los ingredientes por ellas.
+
+PRUEBA RÁPIDA DE LOS 20 MODELOS
+1. Con una parcela VACÍA, abre Pruebas -> Demo: 20 máquinas nuevas.
+2. Se crean veinte líneas independientes, con almacenes precargados y terminales.
+   Es un laboratorio: concede $60.000 de prueba y desbloquea los ocho niveles.
+   No se activa en una parcela ocupada ni borra tu fábrica.
+3. Cada línea tiene ingredientes para 12 ciclos de la primera receta. Espera
+   unos 2–3 minutos para ver sus productos moverse y venderse.
+4. Al agotarse los almacenes, las máquinas se detienen. Es el resultado esperado.
+   Para repetir desde cero, detén Play y vuelve a iniciarlo.
+5. La demo conserva las recetas alternativas en G, pero NO repone sus insumos
+   automáticamente: cambiar la receta requiere alimentar los materiales nuevos.
+
+QUÉ COMPROBAR Y CONTARME
+- ¿Distingues fácilmente la laminadora, bobinadora, reactores, óptica y robótica?
+- ¿Los productos salen por el puerto cian y siguen las flechas de las cintas?
+- ¿Puedes ver los modelos y descripciones en las seis categorías nuevas?
+- Selecciona un filtro, pulsa F o Filtro y busca "nucleo" o "cobre". Elige un
+  material. Debe verse en la descripción y desviar sólo ese material.
+- Prueba B -> F con un filtro seleccionado: al cerrar el selector, una pulsación
+  de B debe volver a abrir Construir.
+- Construye una cadena propia, gira una máquina con R antes de colocarla y
+  conecta las entradas naranjas y la salida cian. Prueba también una curva o
+  un ascensor en la salida.
+- Si una máquina se detiene, revisa los ingredientes de la receta activa y si
+  la salida está llena. Cambiar receta conserva el comportamiento previo de
+  vaciar el inventario interno: hazlo cuando la máquina esté vacía.
+- Cuéntame si hay tirones al abrir el catálogo o al mirar varias líneas a la vez.
+
+PARTIDA NORMAL
+Empiezas con $700, como antes. Comprar usa créditos; los productos sirven para
+otras recetas o para vender. No se requieren piezas para comprar maquinaria.
+Niveles 1–5: requisitos anteriores. Nivel 6: $10.000 vendidos; nivel 7: $25.000;
+nivel 8: $60.000. Son ventas acumuladas, no saldo disponible. La demo altera
+dinero y desbloqueos deliberadamente, por lo que NO sirve para medir el ritmo
+de progresión. Para eso empieza otra sesión sin usar demos.
+
+ARCHIVOS ADJUNTOS
+CATALOGO_8_21.html: las 40 recetas nuevas, buscables por nombre o ingrediente.
+RECETAS_8_21.md: la misma información en texto, con precios, niveles y tiempos.
+Vista_previa_maquinas.png: render auxiliar de las formas; no es captura de Studio.
+
+VALIDACIÓN
+Pruebas automatizadas de recetas, niveles, consumo, bloqueo, venta, configuración,
+54 modelos de carga, 20 modelos de máquinas, 212 conexiones de producción giradas,
+catálogo y demos; regresiones anteriores de cintas, divisores y ascensores.
+Se ejecutó el código Luau del archivo usando adaptadores. No se ejecutó Roblox
+Studio aquí: aspecto final, rendimiento multijugador y ritmo de progresión
+necesitan tu prueba. Los tiempos son intervalos nominales; la simulación revisa
+cada 0,6 s. Los precios nuevos son una base inicial para equilibrar jugando.
