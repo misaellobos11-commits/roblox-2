@@ -1,0 +1,49 @@
+MATTERLOOM 8.22 — ACABADO DE LAS 20 MÁQUINAS NUEVAS
+
+ABRIR Y COMPARAR
+1. Extrae el ZIP y abre Matterloom_8_22_Maquinas_Redisenadas.rbxlx en Studio.
+2. Pulsa Play, elige una parcela vacía y entra en Pruebas.
+3. Pulsa «Demo: 20 máquinas nuevas». Verás los nuevos acabados en todas ellas.
+   La demo da $60.000 de prueba y materiales para 12 ciclos de la primera receta
+   de cada máquina. No se crea en una parcela ocupada ni borra tu fábrica.
+4. Acércate a la laminadora, reactor, prensa, robótica y ensambladora de núcleos.
+   Mira también los modelos pequeños del catálogo de construcción.
+
+QUÉ MEJORÓ
+- Bases escalonadas, laterales biselados y paneles de mantenimiento.
+- Controles con marco, teclas y pequeñas señales de estado.
+- Laminadora y bobinadora: cojinetes, espiras y protecciones.
+- Reactor, mezcladora y purificadora: tuberías, abrazaderas y medidores.
+- Hornos: cubiertas, aislamiento, chimeneas y rejillas.
+- Electrónica y óptica: carriles, cabezales, cartuchos y soportes.
+- Robótica: articulaciones, carcasas, pinzas y fijaciones.
+- Núcleos: corona abierta para que el centro se vea desde arriba.
+
+Esta versión cambia el acabado de las veinte máquinas añadidas en 8.21.
+Conserva los diseños anteriores a esa ampliación, las 53 recetas, los 54 recursos,
+las entradas/salidas, el transporte, el HUD, la economía y el escenario.
+La compra usa créditos; G cambia receta y F abre el selector de materiales.
+Las entradas siguen siendo naranjas y la salida cian.
+
+PRUEBA MANUAL
+- ¿Se ven más terminadas y encajan con las máquinas originales?
+- ¿Distingues sus mecanismos desde la cámara habitual de construcción?
+- Gira varias con R antes de colocarlas: los adornos deben quedar dentro de su
+  espacio y las bocas tienen que seguir coincidiendo con las cintas.
+- Observa la salida en curvas y ascensores; debe funcionar como en 8.21.
+- Si una línea de la demo se detiene tras doce productos, agotó sus suministros.
+- Comenta si los detalles dificultan ver productos o si notas tirones con la demo.
+
+ADJUNTOS
+Vista_general_20_maquinas.png y Detalle_de_maquinas.png son renders auxiliares
+de la geometría, no capturas de Roblox Studio. La iluminación real puede variar.
+CATALOGO_RECETAS.html conserva las recetas de 8.21, válidas también para 8.22;
+permite buscar máquinas, ingredientes y productos sin conexión.
+
+VALIDACIÓN REALIZADA
+Comparación XML: sólo cambian los modelos nuevos y la etiqueta de versión.
+Pruebas del código Luau: 80 colocaciones giradas de los modelos, límites del
+espacio, selección, miniaturas, 54 cargas y simulación de las recetas y demo.
+Máximo observado: 77 partes visibles por máquina; no se añaden luces ni scripts
+de animación. Las pruebas no miden rendimiento ni render de Roblox Studio:
+esa parte corresponde a esta prueba manual.

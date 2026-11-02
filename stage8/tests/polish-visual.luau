@@ -24,3 +24,23 @@ for _,typ in ipairs(Catalog.expansionOrder)do
  end
 end
 print('PASS polished geometry footprint in 80 rotations; maximum visible parts: '..maxParts)
+local sensor=Visual.create(Instance.new('Folder'),{id=1,machineType='SensorAssembler',x=0,z=0,rotation=0,level=0},Vector3.zero,false)
+local inverse=sensor.PrimaryPart.CFrame:Inverse()
+local lenses,rims={},{}
+for _,p in ipairs(sensor:GetDescendants())do
+ if p.Name=='CristalCalibracion' then table.insert(lenses,p)end
+ if p.Name=='AnilloOptico' then table.insert(rims,p)end
+end
+assert(#lenses==2 and #rims==2)
+for _,lens in ipairs(lenses)do
+ local at=inverse:PointToWorldSpace(lens.CFrame.Position)
+ for _,rim in ipairs(rims)do
+  local rimAt=inverse:PointToWorldSpace(rim.CFrame.Position)
+  if math.abs(at.X-rimAt.X)<.01 then
+   assert(at.Z+lens.Size.X/2>rimAt.Z+rim.Size.X/2+.04,'solid optical rim hides the colored lens')
+   assert(lens.Size.Y<rim.Size.Y,'lens hides surrounding rim')
+  end
+ end
+end
+sensor:Destroy()
+print('PASS both sensor lenses remain visible in front of their optical rims')

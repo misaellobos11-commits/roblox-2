@@ -183,10 +183,12 @@ def polish(machine):
         k.box('BarreraCarga',(5.2,.3,.45),(0,2.9,1.55),accent)
         k.box('UnidadCarga',(1.4,1.15,.65),(0,4.65,-1.65),DARK)
     elif profile=='sensor':
+        for lens in k.find('CristalCalibracion'):
+            lens['pos']=(lens['pos'][0],lens['pos'][1],1.2)
+            lens['size']=(.12,1.1,1.1)
         for x in (-1.7,1.7):
             k.cylinder('AroObjetivo',(x,3.8,.8),.12,1.7,STEEL,'Z')
             k.cylinder('AnilloOptico',(x,3.8,1.12),.1,1.32,DARK,'Z')
-            k.find('CristalCalibracion')[0]['color']=accent
             k.box('PieOptica',(.6,.7,1.3),(x,3.1,0),PAINT)
         k.box('MastilCalibracion',(.35,1.7,.35),(0,3.9,-1.7),STEEL)
         k.box('ReticulaHorizontal',(1.5,.04,.04),(0,5,-1.45),STEEL,'SmoothPlastic')

@@ -1,5 +1,16 @@
 # Matterloom — pruebas de conexiones y cintas
 
+## 8.22: acabado visual de la maquinaria nueva
+
+`bash stage8/check_822.sh` genera `build/Matterloom_8_22_Maquinas_Redisenadas.rbxlx`.
+`expansion/polish_822.py` añade carcasas biseladas y detalles mecánicos propios
+a los veinte modelos de 8.21, preservando su fuente original. El overlay sólo
+sustituye la geometría de expansión y la etiqueta de versión; el resto del
+archivo queda idéntico. Incluye comprobación de huella y límite de partes
+(máximo observado 77), miniaturas, cargas y regresiones de producción/transporte.
+`GUIA_PRUEBA_8_22.txt` describe la prueba en Studio; las galerías de Blender son
+vistas auxiliares y no validan el render del motor de Roblox.
+
 ## 8.21: expansión industrial
 
 `bash stage8/check_821.sh` genera `build/Matterloom_8_21_Expansion_Industrial.rbxlx`.

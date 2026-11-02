@@ -18,6 +18,6 @@ source=source[:start]+'''elif view in ('polish','close'):
         text.location=((index%COLUMNS-(COLUMNS-1)/2)*12,-(index//COLUMNS-(rows-1)/2)*13-5.2,.02)
         mat=bpy.data.materials.new('LabelInk');mat.diffuse_color=(.8,.9,.95,1);font.materials.append(mat)
 '''+source[end:]
-source=source.replace("cam.type='PERSP';cam.lens=42", "cam.type='ORTHO';cam.ortho_scale="+('44' if close else '85')+";cam.lens=48")
+source=source.replace("cam.type='PERSP';cam.lens=42", "cam.type='ORTHO';cam.ortho_scale="+('44' if close else '95')+";cam.lens=48")
 source=source.replace('resolution_x=1500','resolution_x=2000').replace('resolution_y=1000','resolution_y=1700').replace('scene.cycles.samples=48','scene.cycles.samples=32')
 exec(compile(source,'polished-machine-gallery','exec'),{'LABELS':[m['name'] for m in (CLOSE if close else MACHINES)],'COLUMNS':3 if close else 4})
