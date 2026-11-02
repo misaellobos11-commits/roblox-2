@@ -14,16 +14,20 @@ huella dentro de las dos casillas y bocas generadas por el catálogo existente.
 
 ## Ejecución
 
-- [ ] Añadir `stage8/expansion/polish_822.py`: decoración y acabados de los
+- [x] Añadir `stage8/expansion/polish_822.py`: decoración y acabados de los
   modelos existentes, sin modificar el registro de 8.21.
-- [ ] Añadir `stage8/build_822.py`: sustituir exclusivamente la sección de
+- [x] Añadir `stage8/build_822.py`: sustituir exclusivamente la sección de
   modelos de expansión de MachineVisual y la etiqueta de versión.
-- [ ] Crear galería de modelos y revisar render auxiliar, incluidos primeros
+- [x] Crear galería de modelos y revisar render auxiliar, incluidos primeros
   planos de máquinas pequeñas y dos entradas laterales.
-- [ ] Ejecutar regresiones existentes de modelos, miniaturas, cargas, recetas
+- [x] Ejecutar regresiones existentes de modelos, miniaturas, cargas, recetas
   y cintas; comprobar límites de huella y presupuesto de partes.
-- [ ] Revisar el cambio, empaquetar .rbxlx/guía/vista previa y comprobar la
+- [x] Revisar el cambio, empaquetar .rbxlx/guía/vista previa y comprobar la
   descarga pública exacta. No fusionar main.
 
 **Límite de validación:** CLI y Blender no sustituyen Roblox Studio para render,
 rendimiento o interacción real. Usar la demo de 20 máquinas para la prueba manual.
+
+Implementación y revisión completadas. Suite check_822.sh: 18 grupos PASS.
+Galería final revisada tras corregir las dos lentes. Entrega mediante rama
+feat/matterloom-8-22-machine-polish; sin cambios en main.
